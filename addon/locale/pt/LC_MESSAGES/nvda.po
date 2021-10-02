@@ -1,0 +1,106 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2021-10-02 02:41+0100\n"
+"PO-Revision-Date: 2021-10-02 02:43+0100\n"
+"Last-Translator: Rui Fontes  <rui.fontes@tiflotecnia.com>\n"
+"Language-Team: Equipa Portuguesa do NVDA: Ângelo Abrantes <ampa4374@gmail."
+"com> e Rui Fontes <Rui Fontes <rui.fontes@tiflotecnia.com>\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ../../../globalPlugins\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: dictionaries/__init__.py\n"
+
+#: dictionaries/__init__.py:26
+msgid "german-portuguese"
+msgstr "Alemão-Português"
+
+#: dictionaries/__init__.py:27
+msgid "spanish-portuguese"
+msgstr "Espanhol-Português"
+
+#: dictionaries/__init__.py:28
+msgid "french-portuguese"
+msgstr "Francês-Português"
+
+#: dictionaries/__init__.py:29
+msgid "english-portuguese"
+msgstr "Inglês-Português"
+
+#: dictionaries/__init__.py:30
+msgid "italian-portuguese"
+msgstr "Italiano-Português"
+
+#: dictionaries/__init__.py:31
+msgid "portuguese-german"
+msgstr "Português-Alemão"
+
+#: dictionaries/__init__.py:32
+msgid "portuguese-spanish"
+msgstr "Português-Espanhol"
+
+#: dictionaries/__init__.py:33
+msgid "portuguese-french"
+msgstr "Português-Francês"
+
+#: dictionaries/__init__.py:34
+msgid "portuguese-english"
+msgstr "Português-Inglês"
+
+#: dictionaries/__init__.py:35
+msgid "portuguese-italian"
+msgstr "Português-Italiano"
+
+#: dictionaries/__init__.py:36
+msgid "portuguese - meanings (in portuguese)"
+msgstr "Português - significados"
+
+#: dictionaries/__init__.py:37
+msgid "portuguese - synonyms (in portuguese)"
+msgstr "Português - sinónimos"
+
+#: dictionaries/__init__.py:38
+msgid "Philosophy by Nicola Abbagnano (in portuguese)"
+msgstr "Filosofia por Nicola Abbagnano"
+
+#: dictionaries/__init__.py:39
+msgid "Psychology by Raul Mesquita e outro (in portuguese)"
+msgstr "Psicologia por Raul Mesquita e outro"
+
+#: dictionaries/__init__.py:49 dictionaries/__init__.py:54
+#: dictionaries/__init__.py:66 dictionaries/__init__.py:105
+#: dictionaries/__init__.py:119
+msgid "Dictionaries"
+msgstr "Dicionários"
+
+#: dictionaries/__init__.py:53
+msgid "LEARNING with NVDA"
+msgstr "Aprender com o NVDA"
+
+#: dictionaries/__init__.py:69
+msgid "Choose the dictionary and press Enter"
+msgstr "Escolhe o dicionário e pressiona Enter"
+
+#: dictionaries/__init__.py:105
+msgid "Enter the word or expression to search for:"
+msgstr "Introduza a palavra ou expressão a pesquisar:"
+
+#: dictionaries/__init__.py:117
+#, python-format
+msgid "%s not found in the dictionary of %s."
+msgstr "%s não encontrado no dicionário de %s."
+
+#: dictionaries/__init__.py:118
+msgid "Do you want to search another word?"
+msgstr "Quer procurar outra palavra?"
+
+#: dictionaries/__init__.py:133
+#, python-format
+msgid "Here is the meaning of %s in the dictionary %s:"
+msgstr "Eis o o significado de %s no dicionário %s:"
