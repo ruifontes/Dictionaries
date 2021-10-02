@@ -3,11 +3,11 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2021-10-02 16:04+0100\n"
-"PO-Revision-Date: 2021-10-02 16:07+0100\n"
+"PO-Revision-Date: 2021-10-02 16:06+0100\n"
 "Last-Translator: Rui Fontes  <rui.fontes@tiflotecnia.com>\n"
 "Language-Team: Equipa Portuguesa do NVDA: Ângelo Abrantes <ampa4374@gmail."
 "com> e Rui Fontes <Rui Fontes <rui.fontes@tiflotecnia.com>\n"
-"Language: pt_PT\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,59 +20,59 @@ msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:27
 msgid "german-portuguese"
-msgstr "Alemão-Português"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:28
 msgid "spanish-portuguese"
-msgstr "Espanhol-Português"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:29
 msgid "french-portuguese"
-msgstr "Francês-Português"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:30
 msgid "english-portuguese"
-msgstr "Inglês-Português"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:31
 msgid "italian-portuguese"
-msgstr "Italiano-Português"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:32
 msgid "portuguese-german"
-msgstr "Português-Alemão"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:33
 msgid "portuguese-spanish"
-msgstr "Português-Espanhol"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:34
 msgid "portuguese-french"
-msgstr "Português-Francês"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:35
 msgid "portuguese-english"
-msgstr "Português-Inglês"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:36
 msgid "portuguese-italian"
-msgstr "Português-Italiano"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:37
 msgid "portuguese - meanings (in portuguese)"
-msgstr "Português - significados"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:38
 msgid "portuguese - synonyms (in portuguese)"
-msgstr "Português - sinónimos"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:39
 msgid "Philosophy by Nicola Abbagnano (in portuguese)"
-msgstr "Filosofia por Nicola Abbagnano"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:40
 msgid "Psychology by Raul Mesquita e outro (in portuguese)"
-msgstr "Psicologia por Raul Mesquita e outro"
+msgstr ""
 
 #. . Translators Dialog title
 #. Add-on summary, usually the user visible name of the addon.
@@ -84,31 +84,31 @@ msgstr "Psicologia por Raul Mesquita e outro"
 #: addon\globalPlugins\dictionaries\__init__.py:106
 #: addon\globalPlugins\dictionaries\__init__.py:120 buildVars.py:23
 msgid "Dictionaries"
-msgstr "Dicionários"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:54
 msgid "LEARNING with NVDA"
-msgstr "Aprender com o NVDA"
+msgstr ""
 
 #. . Translators StaticText with instructions for the user:
 #: addon\globalPlugins\dictionaries\__init__.py:70
 msgid "Choose the dictionary and press Enter"
-msgstr "Escolhe o dicionário e pressiona Enter"
+msgstr ""
 
 #. Get the path of selected dictionary
 #. . Translators Asking user to enter the text to search
 #: addon\globalPlugins\dictionaries\__init__.py:106
 msgid "Enter the word or expression to search for:"
-msgstr "Introduza a palavra ou expressão a pesquisar:"
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:118
 #, python-format
 msgid "%s not found in the dictionary of %s."
-msgstr "%s não encontrado no dicionário de %s."
+msgstr ""
 
 #: addon\globalPlugins\dictionaries\__init__.py:119
 msgid "Do you want to search another word?"
-msgstr "Quer procurar outra palavra?"
+msgstr ""
 
 #. When false end of cycle
 #. As it is not the end of the definition, add to variable
@@ -117,10 +117,10 @@ msgstr "Quer procurar outra palavra?"
 #: addon\globalPlugins\dictionaries\__init__.py:134
 #, python-format
 msgid "Here is the meaning of %s in the dictionary %s:"
-msgstr "Eis o o significado de %s no dicionário %s:"
+msgstr ""
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 #: buildVars.py:26
 msgid "Allows quick access to several dictionaries"
-msgstr "Permite o acesso rápido a vários dicionários"
+msgstr ""

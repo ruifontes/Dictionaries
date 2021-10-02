@@ -37,4 +37,4 @@ O comando para invocar o add-on é Control+Shift+F6.
 ### Versão 21.10
 * Lançamento inicial
 
-[1]: https:
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/21.10/dictionaries-21.10.nvda-addon

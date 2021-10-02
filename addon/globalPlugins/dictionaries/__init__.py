@@ -1,7 +1,8 @@
-﻿# globalPlugins\Dictionaries\__init__.py
+# -*- coding: utf-8 -*-
+# globalPlugins\Dictionaries\__init__.py
 # dictionaries
 # written by Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com>
-# Provides some dictionaries.
+# Provides quick access to several dictionaries.
 # Shortcut: Control+shift+F6
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
