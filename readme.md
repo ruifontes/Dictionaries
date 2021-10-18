@@ -1,30 +1,34 @@
 # Dictionaries
 
- 
+
 ## Informations
 * Authors: Rui Fontes, Ângelo Abrantes and Abel Passos do Nascimento Jr.
-* Updated in 1/10/2021
+* Updated in 16/10/2021
 * Download [stable version][1]
 * Compatibility: NVDA version 2019.3 and beyond
 
 
 ## Presentation
-This add-on provides a quick way to access, so far, 14 dictionaries:
-English - Portuguese and Portuguese - English;
-French - Portuguese and Portuguese - French;
-Italian - Portuguese and Portuguese - Italian;
-German - Portuguese and Portuguese - German;
-Spanish - - Portuguese and Portuguese - Spanish;
-Portuguese - meanings (in portuguese);
-Portuguese - synonyms (in portuguese);
-Dictionary of philosophy by Nicola Abbagnano (in portuguese);
-Dictionary of Psychology by Raul Mesquita and other (in portuguese).
+This add-on provides a quick way to access, so far, 17 dictionaries:
+* English * Portuguese and Portuguese * English;
+* French * Portuguese and Portuguese * French;
+* Italian * Portuguese and Portuguese * Italian;
+* German * Portuguese and Portuguese * German;
+* Spanish * * Portuguese and Portuguese * Spanish;
+* Englis (Concise Oxford dictionary);
+-Chemical;
+* Medical;
+* Portuguese * meanings (in portuguese);
+* Portuguese * synonyms (in portuguese);
+* Philosophy by Nicola Abbagnano (in portuguese);
+* Psychology by Raul Mesquita and other (in portuguese).
 
 We are receptive to include other dictionaries. So, if you desire to add a dictionary, contact one of the authors.
 
 
 ## Important note
 Please, remember that the nouns in German must have the first letter capitalized...
+Also note that in some dictionaries the first letter, or the entire term, may be capitalized!
 
 
 ## Command

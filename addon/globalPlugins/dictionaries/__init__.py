@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # globalPlugins\Dictionaries\__init__.py
 # dictionaries
-# written by Rui Fontes <rui.fontes@tiflotecnia.com> and Ângelo Abrantes <ampa4374@gmail.com>
+# written by Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail.com> and Abel Passos do Nascimento Jr. <abel.passos@gmail.com>
 # Provides quick access to several dictionaries.
 # Shortcut: Control+shift+F6
 # This file is covered by the GNU General Public License.
@@ -14,8 +14,9 @@ import wx
 import gui
 from gui import guiHelper
 import ui
-from ui import message
 import api
+# For update process
+from . update import *
 # Necessary For translation
 from scriptHandler import script
 import addonHandler
@@ -24,20 +25,23 @@ addonHandler.initTranslation()
 #Global variables
 filepath = os.path.join (os.path.dirname(__file__), "dictionaries")    #caminho da pasta dos dicionários
 dict = {
-	_("german-portuguese") : "alemão-português.txt",
-	_("spanish-portuguese") : "espanhol-português.txt",
-	_("french-portuguese") : "francês-português.txt",
 	_("english-portuguese") : "inglês-português.TXT",
+	_("french-portuguese") : "francês-português.txt",
+	_("german-portuguese") : "alemão-português.txt",
 	_("italian-portuguese") : "italiano-português.txt",
-	_("portuguese-german") : "português-alemão.TXT",
-	_("portuguese-spanish") : "português-espanhol.txt",
-	_("portuguese-french") : "português-francês.txt",
+	_("spanish-portuguese") : "espanhol-português.txt",
 	_("portuguese-english") : "português-inglês.txt",
+	_("portuguese-french") : "português-francês.txt",
+	_("portuguese-german") : "português-alemão.TXT",
 	_("portuguese-italian") : "português-italiano.txt",
+	_("portuguese-spanish") : "português-espanhol.txt",
+	_("Englis (Concise Oxford dictionary)") : "azdictionary.txt",
 	_("portuguese - meanings (in portuguese)") : "português-significados.txt",
 	_("portuguese - synonyms (in portuguese)") : "português-sinómimos.txt",
+	_("Chemical (in portuguese)") : "dicionário de química.txt",
+	_("Medical (in portuguese)") : "Dicionário Médico.txt",
 	_("Philosophy by Nicola Abbagnano (in portuguese)") : "Dicionário de Filosofia - Nicola Abbagnano.txt",
-	_("Psychology by Raul Mesquita e outro (in portuguese)") : "dicionário de psicologia - Raul Mesquita e outro.txt"
+	_("Psychology by Raul Mesquita and  other (in portuguese)") : "dicionário de psicologia - Raul Mesquita e outro.txt"
 }
 dictList = list(dict.keys())
 
@@ -48,6 +52,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Call of the constructor of the parent class.
 		super(globalPluginHandler.GlobalPlugin, self).__init__()
 		title = _("Dictionaries")
+		_MainWindows = Initialize()
+		_MainWindows.start()
+
 	#defining a script with decorator:
 	@script(
 		gesture="kb:Control+shift+F6",
@@ -115,7 +122,7 @@ class MyDialog(wx.Dialog):
 			if x==totalLines:  # Found the end of file and the word do not exists...
 				#. Translators message informing the word do not exist
 				if gui.messageBox(
-					_("%s not found in the dictionary of %s.") %(wordToSearch[1:], self.choice_1.GetStringSelection())+
+					_("%s not found in the dictionary of %s.\nPlease note that some dictionaries may have the terms first letter in uppercase or even the all word...\n") %(wordToSearch[1:], self.choice_1.GetStringSelection())+
 					"\n"+_("Do you want to search another word?"),
 					caption = _("Dictionaries"),
 					style = wx.YES | wx.NO) == wx.YES:

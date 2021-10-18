@@ -27,7 +27,7 @@ addon_info = {
 	# version
 	"addon_version": "21.10",
 	# Author(s)
-	"addon_author": "Ângelo Abrantes <ampa4374@gmail.com>, Rui Fontes <rui.fontes@tiflotecnia.com> and Abel Passos do Nascimento Jr. <abel.passos@gmail.com>",
+	"addon_author": "Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail.com> and Abel Passos do Nascimento Jr. <abel.passos@gmail.com>",
 	# URL for the add-on documentation support
 	"addon_url": "https://github.com/ruifontes/dictionaries",
 	# Documentation file name
