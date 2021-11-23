@@ -9,12 +9,14 @@
 
 # import the necessary modules.
 import globalPluginHandler
+import core
 import os
 import wx
 import gui
 from gui import guiHelper
 import ui
 import api
+import threading
 import urllib.request
 # For update process
 from . update import *
@@ -24,29 +26,51 @@ import addonHandler
 addonHandler.initTranslation()
 
 #Global variables
-filepath = os.path.join (os.path.dirname(__file__), "dictionaries") #Path of dictionaries folder
+#Path of dictionaries folder
+filepath = os.path.join (os.path.dirname(__file__), "dictionaries")
 
 dict = {
+	# Translators: Name of a dictionary
 	_("english-portuguese") : "ingles-portugues.txt",
+	# Translators: Name of a dictionary
 	_("french-portuguese") : "frances-portugues.txt",
+	# Translators: Name of a dictionary
 	_("german-portuguese") : "alemao-portugues.txt",
+	# Translators: Name of a dictionary
 	_("italian-portuguese") : "italiano-portugues.txt",
+	# Translators: Name of a dictionary
 	_("spanish-portuguese") : "espanhol-portugues.txt",
+	# Translators: Name of a dictionary
 	_("portuguese-english") : "portugues-ingles.txt",
+	# Translators: Name of a dictionary
 	_("portuguese-french") : "portugues-frances.txt",
+	# Translators: Name of a dictionary
 	_("portuguese-german") : "portugues-alemao.txt",
+	# Translators: Name of a dictionary
 	_("portuguese-italian") : "portugues-italiano.txt",
+	# Translators: Name of a dictionary
 	_("portuguese-spanish") : "portugues-espanhol.txt",
+	# Translators: Name of a dictionary
 	_("Englis (Concise Oxford dictionary)") : "azdictionary.txt",
+	# Translators: Name of a dictionary
 	_("portuguese - meanings (in portuguese)") : "portugues-significados.txt",
+	# Translators: Name of a dictionary
 	_("portuguese - synonyms (in portuguese)") : "portugues-sinomimos.txt",
+	# Translators: Name of a dictionary
 	_("Chemical (in portuguese)") : "dicionario_de_quimica.txt",
+	# Translators: Name of a dictionary
 	_("Medical (in portuguese)") : "dicionario_medico.txt",
+	# Translators: Name of a dictionary
 	_("Philosophy by Nicola Abbagnano (in portuguese)") : "dicionario_de_filosofia.txt",
+	# Translators: Name of a dictionary
 	_("Psychology by Raul Mesquita and  other (in portuguese)") : "dicionario_de_psicologia.txt",
+	# Translators: Name of a dictionary
 	_("Spanish - RAE (in spanish)") : "diccionario-de-la-lengua-espanhola-rae.txt",
+	# Translators: Name of a dictionary
 	_("Tecnical Informatic (in portuguese)") : "dicionario_tecnico_de_informatica.txt",
+	# Translators: Name of a dictionary
 	_("Englis synonyms dictionary)") : "ingles-sinonimos.txt",
+	# Translators: Name of a dictionary
 	_("Englis Spanish)") : "ingles-espanhol.txt"
 }
 
@@ -63,28 +87,40 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self):
 		# Call of the constructor of the parent class.
 		super(globalPluginHandler.GlobalPlugin, self).__init__()
-		#. Translators Dialog title
+		# Avoid use in secure screens
+		if globalVars.appArgs.secure:
+			return
+		# Translators: Dialog title
 		title = _("Dictionaries")
+		# To allow waiting end of network tasks
+		core.postNvdaStartup.register(self.networkTasks)
+
+	def networkTasks(self):
 		# Calling the update process...
 		_MainWindows = Initialize()
 		_MainWindows.start()
 
+	def terminate(self):
+		core.postNvdaStartup.unregister(self.networkTasks)
+
 	#defining a script with decorator:
 	@script(
 		gesture="kb:Control+shift+F6",
+		# Translators: Message to be announced during Keyboard Help  
 		description= _("Main window to access several dictionaries"),
+		# For translators: Name of the section in "Input gestures" dialog.  
 		category= _("Dictionaries")
 	)
 	def script_exp1(self, event):
-		#Calling the class "MyDialog" to select the dictionary to use or to download more.
-		gui.mainFrame._popupSettingsDialog(MyDialog)
+		#Calling the class "MainWindow" to select the dictionary to use or to download more.
+		gui.mainFrame._popupSettingsDialog(MainWindow)
 
 
-class MyDialog(wx.Dialog):
+class MainWindow(wx.Dialog):
 	def __init__(self, *args, **kwds):
 		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
 		wx.Dialog.__init__(self, *args, **kwds)
-		#. Translators Dialog title
+		# Translators: Dialog title
 		self.SetTitle(_("Dictionaries"))
 
 		#Filter the dictionaries present on dicts folder
@@ -94,14 +130,18 @@ class MyDialog(wx.Dialog):
 		dictList = list(dict.keys())
 		n = 0
 		while n < len(dictList):
-			if dict.get(dictList[n]) not in availableDictsList: # If true dict is not present...
-				missingDicts.append(dictList[n]) # Join to missing dicts list...
-				del dictList[n] # Delete from available dicts list
-				n -= 1 # To allow to check all dicts since we have deleted the item with number n...
+			# If true dict is not present...
+			if dict.get(dictList[n]) not in availableDictsList:
+				# False, so join to missing dicts list...
+				missingDicts.append(dictList[n])
+				# And delete from available dicts list
+				del dictList[n]
+				# To allow to check all dicts since we have deleted the item with number n...
+				n -= 1
 			n += 1
 
 		sizer_1 = wx.BoxSizer(wx.VERTICAL)
-		#. Translators StaticText with instructions for the user:
+		# Translators: StaticText with instructions for the user:
 		label_1 = wx.StaticText(self, wx.ID_ANY, _("Choose the dictionary and press Enter"))
 		sizer_1.Add(label_1, 0, 0, 0)
 
@@ -118,7 +158,7 @@ class MyDialog(wx.Dialog):
 		self.button_1.SetDefault()
 		sizer_2.Add(self.button_1, 0, 0, 0)
 
-		#. Translators Button to allow the download of more dictionmaries
+		# Translators: Button to allow the download of more dictionnaries
 		self.button_2 = wx.Button(self, wx.ID_ANY, _("Download more..."))
 		sizer_2.Add(self.button_2, 0, 0, 0)
 
@@ -136,79 +176,91 @@ class MyDialog(wx.Dialog):
 		self.Layout()
 		self.CentreOnScreen()
 
-		self.Bind(wx.EVT_BUTTON, self.allButtons, self.button_1)
+		self.Bind(wx.EVT_BUTTON, self.searchWindow, self.button_1)
 		self.Bind(wx.EVT_BUTTON, self.downloadMore, self.button_2)
 
-	def allButtons(self, event):
+	def searchWindow(self, event):
+		self.Close()
 		global dictToUse, wordToSearch, ourLine
 		event.Skip()
-		dictToUse = choice_1.GetStringSelection() # Get the selected dictionary
-		var3 = os.path.join(filepath, dict.get(choice_1.GetStringSelection())) # Get the path of selected dictionary
-		#. Translators Asking user to enter the text to search
+		# Get the selected dictionary
+		dictToUse = choice_1.GetStringSelection()
+		# Get the path of selected dictionary
+		selectedDict = os.path.join(filepath, dict.get(choice_1.GetStringSelection()))
+		# Translators: Asking user to enter the text to search
 		wordToSearch = "€" + wx.GetTextFromUser(_("Enter the word or expression to search for:"), _("Dictionaries"))
-		with open(var3, "r", encoding = "UTF-8") as f: # Open the selected dictionary file
-			ourLine = f.readline()  # Reads the first line where it is the length of the file
-			totalLines = int(ourLine)   # convverts to a numerical value
-			x = 0 # Line counter
+		# Open the selected dictionary file
+		with open(selectedDict, "r", encoding = "UTF-8") as f:
+			# Reads the first line where it is the length of the file
+			ourLine = f.readline() 
+			# convverts to a numerical value
+			totalLines = int(ourLine)  
+			x = 0
 			ourLine = ""
-			while not ourLine.startswith(wordToSearch.lower()) and x<totalLines: #Read all lines untill find our word or get to file end
-				x += 1 # Counter increment
-				ourLine = f.readline().lower() # When the line starts with our word ends the search
-			if x==totalLines:  # Found the end of file and the word do not exists...
-				#. Translators message informing the word do not exist
+			# Read all lines untill find our word or get to file end
+			while not ourLine.startswith(wordToSearch.lower()) and x<totalLines:
+				x += 1
+				# When the line starts with our word ends the search
+				ourLine = f.readline().lower()
+			# Found the end of file and the word do not exists...
+			if x==totalLines:
 				if gui.messageBox(
-					_("%s not found in the dictionary of %s.\n") %(wordToSearch[1:], dictToUse)+
-					"\n"+_("Do you want to search another word?"),
-					caption = _("Dictionaries"),
-					style = wx.YES | wx.NO) == wx.YES:
-					MyDialog.allButtons(self, event)
+					# Translators: message informing the word do not exist
+					_("%s not found in the dictionary of %s.\n") %(wordToSearch[1:], dictToUse)+"\n"+
+					# Translators: message asking user if he wants to search again
+					_("Do you want to search another word?"),
+					caption = _("Dictionaries"), style = wx.YES | wx.NO) == wx.YES:
+					MainWindow.searchWindow(self, event)
 				else:
 					return
-			else:  # If the word was found, lets get the meaning.
+			# The word was found, lets get the meaning.
+			else:
 				line1 = ""
-				while "---" not in line1 and x<totalLines: # Get all lines untill find "---" or at the end of file
-					x += 1 # increment the counter to start in next line
+				# Get all lines untill find "---" or at the end of file
+				while "---" not in line1 and x<totalLines:
+					# increment the counter to start in next line
+					x += 1
 					line1 = f.readline(x)
-					if "---" not in line1: # When false end of cycle
-						ourLine = ourLine + line1 # As it is not the end of the definition, add to variable
-				y = len(wordToSearch) # To remove the desired word of the first line
-				ourLine = ourLine[y:].strip() # To clean the string for garbage in begining and ending
+					# When false end of cycle, and when True it is not the end of the definition, so add to variable
+					if "---" not in line1:
+						ourLine = ourLine + line1
+				# To remove the desired word of the first line and to clean the text from garbage in begining and end...
+				y = len(wordToSearch)
+				ourLine = ourLine[y:].strip()
 				# Call the window showing the results
-				gui.mainFrame._popupSettingsDialog(MyDialog1)
+				gui.mainFrame._popupSettingsDialog(ShowResults)
 
 	def downloadMore(self, event):
 		event.Skip()
-		#self.Destroy()
 		# Calling the download window
-		gui.mainFrame._popupSettingsDialog(MyDialog2)
+		gui.mainFrame._popupSettingsDialog(DictDownload)
 
 
-class MyDialog1(wx.Dialog):
+class ShowResults(wx.Dialog):
 	def __init__(self, *args, **kwds):
 		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
 		wx.Dialog.__init__(self, *args, **kwds)
-		#. Translators Dialog title
+		# Translators: Dialog title
 		self.SetTitle(_("Dictionaries"))
 
 		sizer_1 = wx.BoxSizer(wx.VERTICAL)
 
-		#. Translators Static text announcing the results
+		# Translators: Static text announcing the results
 		label_1 = wx.StaticText(self, wx.ID_ANY, _("Here is the meaning of %s in the dictionary %s:") %(wordToSearch[1:], dictToUse))
 		sizer_1.Add(label_1, 0, 0, 0)
 
 		self.text_ctrl_1 = wx.TextCtrl(self, wx.ID_ANY, ourLine, size = (550, 300), style=wx.TE_MULTILINE | wx.TE_READONLY)
-		self.text_ctrl_1.SetFocus()
 		sizer_1.Add(self.text_ctrl_1, 0, 0, 0)
 
 		sizer_2 = wx.StdDialogButtonSizer()
 		sizer_1.Add(sizer_2, 0, wx.ALIGN_RIGHT | wx.ALL, 4)
 
-		#. Translators Name of button to perform another search
+		# Translators: Name of button to perform another search
 		self.button_1 = wx.Button(self, wx.ID_ANY, _("Search again"))
 		self.button_1.SetDefault()
 		sizer_2.Add(self.button_1, 0, 0, 0)
 
-		#. Translators Name of button that allows to copy results to clipboard
+		# Translators: Name of button that allows to copy results to clipboard
 		self.button_SAVE = wx.Button(self, wx.ID_ANY, _("Copy to clipboard"))
 		sizer_2.Add(self.button_SAVE, 0, 0, 0)
 
@@ -221,9 +273,10 @@ class MyDialog1(wx.Dialog):
 		sizer_1.Fit(self)
 
 		self.SetAffirmativeId(self.button_1.GetId())
-		self.Bind(wx.EVT_BUTTON, self.searchAgain, self.button_1)
 		self.SetEscapeId(self.button_CLOSE.GetId())
+		self.Bind(wx.EVT_BUTTON, self.searchAgain, self.button_1)
 		self.Bind(wx.EVT_BUTTON, self.copyToClip, self.button_SAVE)
+		self.Bind(wx.EVT_BUTTON, self.quit, self.button_CLOSE)
 
 		self.Layout()
 		self.CentreOnScreen()
@@ -231,24 +284,29 @@ class MyDialog1(wx.Dialog):
 	def searchAgain(self, event):
 		event.Skip()
 		# Calling the window to search another entry
-		MyDialog.allButtons(self, event)
+		MainWindow.searchWindow(self, event)
 
 	def copyToClip(self, event):
 		event.Skip()
 		# Copy result to clipboard
 		api.copyToClip(ourLine)
 
+	def quit(self, event):
+		event.Skip()
+		# Calling the main window to choose the dict to use or to download more
+		gui.mainFrame._popupSettingsDialog(MainWindow)
 
-class MyDialog2(wx.Dialog):
+
+class DictDownload(wx.Dialog):
 	def __init__(self, *args, **kwds):
 		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
 		wx.Dialog.__init__(self, *args, **kwds)
-		#. Translators Dialog title
+		# Translators: Dialog title
 		self.SetTitle(_("Dictionaries"))
 
 		sizer_1 = wx.BoxSizer(wx.VERTICAL)
 
-		#. Translators Asking user to choose the dictionary to download
+		# Translators: Asking user to choose the dictionary to download
 		label_1 = wx.StaticText(self, wx.ID_ANY, _("Choose the dictionary to download and press Enter"))
 		sizer_1.Add(label_1, 0, 0, 0)
 
@@ -283,23 +341,32 @@ class MyDialog2(wx.Dialog):
 
 	def download(self, event):
 		event.Skip()
-		urlRepos = "https://www.tiflotecnia.net/dict/" # Online repository of dicts
-		urlN = dict.get(self.choice_2.GetStringSelection()) # Get the file name of selected dictionary to download
-		urlName = urlRepos + urlN # Complete URL of the dictionary file...
-		file = os.path.join(filepath, urlN) # Complete path where to save the dictionary
+		# Online repository of dicts
+		urlRepos = "https://www.tiflotecnia.net/dict/"
+		# Get the file name of selected dictionary to download
+		urlN = dict.get(self.choice_2.GetStringSelection())
+		# Complete URL of the dictionary file...
+		urlName = urlRepos + urlN
+		# Complete path where to save the dictionary
+		file = os.path.join(filepath, urlN)
 
 		self.dialogActive = True
-		#. Translators: Message dialog box asking confirmation to download
+		# Translators: Message dialog box asking confirmation to download
 		if gui.messageBox(_("Are you sure you want to download the %s dictionary from %s?") %(self.choice_2.GetStringSelection(), urlName), _("Dictionaries"), style=wx.ICON_QUESTION|wx.YES_NO) == wx.YES:
-			opener = urllib.request.build_opener()
-			opener.addheaders = [('User-agent', 'Mozilla/5.0')]
-			urllib.request.install_opener(opener)
-			urllib.request.urlretrieve(urlName, file)
+
+			req = urllib.request.Request(urlName, headers={'User-Agent': 'Mozilla/5.0'})
+			response = urllib.request.urlopen(req)
+			fileContents = response.read()
+			response.close()
+			f = open(file, "wb")
+			f.write(fileContents)
+			f.close()
+			# Translators: Asking to wait while downloading
 			ui.message(_("Downloading... Please wait..."))
 		# Calling the main window to choose the dict to use or to download more
-		gui.mainFrame._popupSettingsDialog(MyDialog)
+		gui.mainFrame._popupSettingsDialog(MainWindow)
 
 	def quit(self, event):
 		event.Skip()
 		# Calling the main window to choose the dict to use or to download more
-		gui.mainFrame._popupSettingsDialog(MyDialog)
+		gui.mainFrame._popupSettingsDialog(MainWindow)
