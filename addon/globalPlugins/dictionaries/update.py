@@ -21,7 +21,6 @@ import os
 import globalVars
 import addonHandler
 import addonHandler.addonVersionCheck
-import winsound
 from threading import Thread
 import urllib.request
 import json
@@ -45,7 +44,7 @@ bundle = getOurAddon()
 
 def initConfiguration():
 	confspec = {
-		"isUpgrade": "boolean(default=True)",
+		"isUpgrade": "boolean(default=False)",
 	}
 	config.conf.spec[ourAddon.manifest["name"]] = confspec
 

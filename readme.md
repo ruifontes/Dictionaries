@@ -3,33 +3,15 @@
 <br>
 ## Informations
 * Authors: Rui Fontes, Ângelo Abrantes and Abel Passos do Nascimento Jr.
-* Updated in 19/11/2021
+* Updated in 08/05/2022
 * Download [stable version][1]
 * Compatibility: NVDA version 2019.3 and beyond
 
 <br>
 ## Presentation
-This add-on provides a quick way to access, so far, 21 dictionaries:
-
-* English-Portuguese and Portuguese-English;
-* French-Portuguese and Portuguese-French;
-* Italian-Portuguese and Portuguese-Italian;
-* German-Portuguese and Portuguese-German;
-* Spanish-Portuguese and Portuguese-Spanish;
-* English-Spanish;
-* Englis (Concise Oxford dictionary);
-* Portuguese (meanings) (in portuguese);
-* Portuguese (synonyms) (in portuguese);
-* English (synonyms);
-* Spanish (RAE);
-* Chemical (in portuguese);
-* Medical (in portuguese);
-* Philosophy by Nicola Abbagnano (in portuguese);
-* Psychology by Raul Mesquita and other (in portuguese).
-* Computing (in portuguese).
-
+This add-on provides a quick way to access, so far, 62 dictionaries
 <br>
-In order not to overload the add-on, only the Portuguese, English and between these two languages dictionaries are available.
+In order not to overload the add-on, only the Portuguese, English and between these two languages dictionaries are available on the add-on.
 
 The remaining can be downloaded through the add-on itself.
 
@@ -48,10 +30,20 @@ This add-on includes an automatic update feature.
 
 The check for a new version will be executed everytime NVDA is loaded.
 
-If you do not want this, go to NVDA, Preferences, Options and in the add-on category uncheck the check box.
+If you want this, go to NVDA, Preferences, Options and in the add-on category check the check box.
 
 <br>
 ## Changes
+
+### Version 22.05
+* Added more 15 dictionaries;
+* Some code corrections
+
+### Version 21.12
+* Added more dictionaries;
+* Now using SQLite and .db files to be more snappy;
+* In the thematic dictionaries is presented the complete index to choose what to search and to allow walking on the list to found interesting topics to learn!;
+* Several changes in the code.
 
 ### Version 21.11
 * Added more dictionaries;
@@ -63,4 +55,4 @@ If you do not want this, go to NVDA, Preferences, Options and in the add-on cate
 ### Version 21.10
 * Initial release
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/21.11/dictionaries-21.11.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/22.05/dictionaries-22.05.nvda-addon

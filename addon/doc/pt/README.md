@@ -3,30 +3,13 @@
 <br>
 ## Informações
 * Autores: Rui Fontes, Ângelo Abrantes e Abel Passos do Nascimento Jr.
-* Actualizado em 19/11/2021
+* Actualizado em 08/05/2021
 * Descarregar [versão estável][1]
 * Compatibilidade: NVDA versão 2019.3 e posteriores
 
 <br>
 ## Apresentação
-Este extra fornece uma forma rápida de acesso, até agora, a 21 dicionários:
-
-* Inglês-Português e Português-Inglês;
-* Francês-Português e Português-Francês;
-* Alemão-Português e Português-Alemão;
-* Italiano-Português e Português-Italiano;
-* Espanhol-Português e português-espanhol;
-* Inglês-espanhol;
-* Inglês (Concise Oxford dictionary);
-* Português (significados);
-* Português (sinónimos);
-* Inglês (sinónimos); 
-* Espanhol (RAE);
-* Química;
-* Medicina;
-* Filosofia de Nicola Abbagnano;
-* Psicologia por Raul Mesquita e outro;
-* Informática
+Este extra fornece uma forma rápida de acesso, até agora, a 62 dicionários.
 
 <br>
 Para não sobrecarregar o extra, são apenas disponibilizados os dicionários de português, inglês e entre estes dois idiomas.
@@ -42,7 +25,26 @@ O comando para invocar o extra é Control+Shift+F6.
 É possível alterá-lo no diálogo Definir comandos, na secção Dicionários.
 
 <br>
+## Atualização automática
+
+Este extra inclui um recurso de atualização automática.
+
+A verificação de existência de nova versão será executada cada vez que o NVDA é carregado.
+
+Se desejar que isso aconteça, vá ao menu do NVDA, Preferências, Configurações e na categoria do extra marque a caixa de verificação.
+
+<br>
 ## Alterações
+
+### Version 22.05
+* Adicionados mais 15 dicionários;
+* Correções de código.
+
+### Versão 21.12
+* Adicionados mais dicionários, perfazendo agora 46;
+* Agora usando SQLite e ficheiros .db para maior rapidez;
+* Nos dicionários temáticos é apresentado o índice completo para escolher o que pesquisar e para permitir caminhar na lista para encontrar tópicos interessantes para aprender!
+* Várias alterações no código.
 
 ### Versão 21.11
 * Adicionados mais dicionários;
@@ -54,4 +56,4 @@ O comando para invocar o extra é Control+Shift+F6.
 ### Versão 21.10
 * Lançamento inicial
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/21.11/dictionaries-21.11.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/22.05/dictionaries-22.05.nvda-addon
