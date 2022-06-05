@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2022-05-08 20:07+0100\n"
-"PO-Revision-Date: 2022-05-08 20:14+0100\n"
+"POT-Creation-Date: 2022-06-05 17:01+0100\n"
+"PO-Revision-Date: 2022-06-05 17:20+0100\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa Portuguesa do NVDA: Ângelo Abrantes <ampa4374@gmail."
 "com> e Rui Fontes <Rui Fontes <rui.fontes@tiflotecnia.com>\n"
@@ -18,350 +18,522 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: dictionaries/__init__.py\n"
 
-#: dictionaries/__init__.py:35
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:48
 msgid "Dutch-French"
 msgstr "Neerlandês-Francês"
 
-#: dictionaries/__init__.py:37
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:50
+msgid "English-Amharic"
+msgstr "Inglês-Amárico"
+
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:52
 msgid "English-French"
 msgstr "Inglês-Francês"
 
-#: dictionaries/__init__.py:39
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:54
 msgid "English-Italian"
 msgstr "Inglês-Italiano"
 
-#: dictionaries/__init__.py:41
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:56
 msgid "English-Portuguese"
 msgstr "Inglês-Português"
 
-#: dictionaries/__init__.py:43
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:58
 msgid "English-Spanish"
 msgstr "Inglês-Espanhol"
 
-#: dictionaries/__init__.py:45
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:60
 msgid "French-Arabic"
 msgstr "Francês-Árabe"
 
-#: dictionaries/__init__.py:47
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:62
 msgid "French-Dutch"
 msgstr "Francês-Neerlandês"
 
-#: dictionaries/__init__.py:49
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:64
 msgid "French-English"
 msgstr "Francês-Inglês"
 
-#: dictionaries/__init__.py:51
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:66
 msgid "French-German"
 msgstr "Francês-Alemão"
 
-#: dictionaries/__init__.py:53
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:68
 msgid "French-Italian"
 msgstr "Francês-Italiano"
 
-#: dictionaries/__init__.py:55
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:70
 msgid "French-Portuguese"
 msgstr "Francês-Português"
 
-#: dictionaries/__init__.py:57
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:72
 msgid "french-Spanish"
 msgstr "francês-Espanhol"
 
-#: dictionaries/__init__.py:59
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:74
 msgid "German-French"
 msgstr "Alemão-Francês"
 
-#: dictionaries/__init__.py:61
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:76
 msgid "German-Portuguese"
 msgstr "Alemão-Português"
 
-#: dictionaries/__init__.py:63
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:78
 msgid "Icelandic-French"
 msgstr "Islandês-Francês"
 
-#: dictionaries/__init__.py:65
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:80
 msgid "Italian-English"
 msgstr "Italiano-Inglês"
 
-#: dictionaries/__init__.py:67
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:82
 msgid "Italian-French"
 msgstr "Italiano-Francês"
 
-#: dictionaries/__init__.py:69
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:84
 msgid "Italian-Portuguese"
 msgstr "Italiano-Português"
 
-#: dictionaries/__init__.py:71
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:86
 msgid "Portuguese-English"
 msgstr "Português-Inglês"
 
-#: dictionaries/__init__.py:73
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:88
 msgid "Portuguese-French"
 msgstr "Português-Francês"
 
-#: dictionaries/__init__.py:75
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:90
 msgid "Portuguese-German"
 msgstr "Português-Alemão"
 
-#: dictionaries/__init__.py:77
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:92
 msgid "Portuguese-Italian"
 msgstr "Português-Italiano"
 
-#: dictionaries/__init__.py:79
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:94
 msgid "Portuguese-Spanish"
 msgstr "Português-Espanhol"
 
-#: dictionaries/__init__.py:81
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:96
 msgid "Spanish-French"
 msgstr "Espanhol-Francês"
 
-#: dictionaries/__init__.py:83
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:98
 msgid "Spanish-Portuguese"
 msgstr "Espanhol-Português"
 
-#: dictionaries/__init__.py:85
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:100
 msgid "English (Concise Oxford dictionary)"
 msgstr "Inglês (Concise Oxford dictionary)"
 
-#: dictionaries/__init__.py:87
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:102
 msgid "English synonyms dictionary)"
 msgstr "Inglês - Sinónimos (em inglês)"
 
-#: dictionaries/__init__.py:89
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:104
 msgid "French common nouns with new ortography (in french)"
 msgstr "Francês - Substantivos comuns com nova ortografia (em francês)"
 
-#: dictionaries/__init__.py:91
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:106
 msgid "French common nouns (in french)"
 msgstr "Francês - Substantivos comuns (em francês)"
 
-#: dictionaries/__init__.py:93
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:108
 msgid "French encyclopedie (in french)"
 msgstr "Enciclopédia francesa (em francês)"
 
-#: dictionaries/__init__.py:95
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:110
 msgid "French proper nouns (in french)"
 msgstr "Francês - Substantivos próprios (em francês)"
 
-#: dictionaries/__init__.py:97
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:112
 msgid "French synonyms (in French)"
 msgstr "Francês - Sinónimos (em francês)"
 
-#: dictionaries/__init__.py:99
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:114
 msgid "Portuguese language difficulties (in portuguese)"
 msgstr "Português - Dificuldades da língua portuguesa"
 
-#: dictionaries/__init__.py:101
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:116
 msgid "Portuguese - meanings (in portuguese)"
 msgstr "Português - Significados"
 
-#: dictionaries/__init__.py:103
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:118
 msgid "Portuguese - synonyms (in portuguese)"
 msgstr "Português - Sinónimos"
 
-#: dictionaries/__init__.py:105
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:120
 msgid "Spanish - RAE (in spanish)"
 msgstr "Espanhol (RAE)"
 
-#: dictionaries/__init__.py:107
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:122
 msgid "Spanish - RAE New version (in spanish)"
 msgstr "Espanhol (RAE nova versão)"
 
-#: dictionaries/__init__.py:109
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:124
+msgid "Turkish (in turkish)"
+msgstr "Turco (em turco)"
+
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:126
 msgid "Alchemy (in portuguese)"
 msgstr "Alquimia"
 
-#: dictionaries/__init__.py:111
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:128
+msgid "Biblical (in portuguese)"
+msgstr "Bíblico"
+
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:130
 msgid "Botany (in portuguese)"
 msgstr "Botânica"
 
-#: dictionaries/__init__.py:113
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:132
 msgid "Chemical (in portuguese)"
 msgstr "Química"
 
-#: dictionaries/__init__.py:115
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:134
 msgid "Clinical Practice (in portuguese)"
 msgstr "Medicina"
 
-#: dictionaries/__init__.py:117
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:136
 msgid "Finantial terms (in portuguese pt_br)"
 msgstr "Finanças (glossário de termos) (Brasil)"
 
-#: dictionaries/__init__.py:119
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:138
 msgid "Finantial terms (in portuguese pt_pt)"
 msgstr "Finanças (glossário de termos) (Portugal)"
 
-#: dictionaries/__init__.py:121
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:140
 msgid "Geography and surroundings (in portuguese)"
 msgstr "Geografia e meio ambiente"
 
-#: dictionaries/__init__.py:123
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:142
 msgid "Geology (in portuguese)"
 msgstr "Geologia (em português)"
 
-#: dictionaries/__init__.py:125
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:144
 msgid "Health (in portuguese)"
 msgstr "Saúde"
 
-#: dictionaries/__init__.py:127
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:146
 msgid "Historical concepts (in portuguese)"
 msgstr "História (conceitos)"
 
-#: dictionaries/__init__.py:129
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:148
 msgid "Information society (in portuguese)"
 msgstr "Informática"
 
-#: dictionaries/__init__.py:131
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:150
 msgid "Law glossary (in portuguese pt_pt)"
 msgstr "Direito (glossário)"
 
-#: dictionaries/__init__.py:133
+#. Translators: Name of a dictionary
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:153
 msgid "Mathematic elementar (in portuguese)"
 msgstr "Matemática elementar"
 
-#: dictionaries/__init__.py:135
+#: addon\globalPlugins\dictionaries\__init__.py:154
 msgid "Medical (in french)"
 msgstr "Medicina (em francês)"
 
-#: dictionaries/__init__.py:137
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:156
 msgid "Medical popular (in portuguese)"
 msgstr "Medicina (popular)"
 
-#: dictionaries/__init__.py:139
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:158
 msgid "Medical technical (in portuguese)"
 msgstr "Medicina (técnico)"
 
-#: dictionaries/__init__.py:141
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:160
+msgid "Music (in portuguese)"
+msgstr "Música"
+
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:162
 msgid "Nursing (in portuguese)"
 msgstr "Enfermagem"
 
-#: dictionaries/__init__.py:143
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:164
 msgid "Philosophy (Cambridge)"
 msgstr "Filosofia (Cambridge) (em inglês)"
 
-#: dictionaries/__init__.py:145
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:166
 msgid "Philosophy (in portuguese)"
 msgstr "Filosofia"
 
-#: dictionaries/__init__.py:147
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:168
 msgid "Phonetics (in spanish)"
 msgstr "Fonética (em espanhol)"
 
-#: dictionaries/__init__.py:149
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:170
 msgid "Politic (in portuguese)"
 msgstr "Política"
 
-#: dictionaries/__init__.py:151
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:172
+msgid "Portuguese musicians (in portuguese)"
+msgstr "Músicos portugueses"
+
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:174
 msgid "Psychology (in portuguese)"
 msgstr "Psicologia"
 
-#: dictionaries/__init__.py:153
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:176
+msgid "Slang and idioms (in portuguese)"
+msgstr "Calão e expressões idiomáticas"
+
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:178
 msgid "Tecnical of Informatic (english-french)"
 msgstr "Informática (Inglês-Francês)"
 
-#: dictionaries/__init__.py:155
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:180
 msgid "Tecnical of Informatic (in portuguese)"
 msgstr "Informática"
 
-#: dictionaries/__init__.py:157
-msgid "Veterinary medicin"
+#. Translators: Name of a dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:182
+msgid "Veterinary medicin (in portuguese)"
 msgstr "Veterinária"
 
-#: dictionaries/__init__.py:205 dictionaries/__init__.py:223
-#: dictionaries/__init__.py:234 dictionaries/__init__.py:319
-#: dictionaries/__init__.py:422 dictionaries/__init__.py:568
-#: dictionaries/__init__.py:629 dictionaries/__init__.py:686
-#: dictionaries/buildVars.py:23
+#. Translators: Dialog title
+#. For translators: Name of the section in "Input gestures" dialog.
+#. Translators: Dialog title
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: addon\globalPlugins\dictionaries\__init__.py:228
+#: addon\globalPlugins\dictionaries\__init__.py:246
+#: addon\globalPlugins\dictionaries\__init__.py:256
+#: addon\globalPlugins\dictionaries\__init__.py:282
+#: addon\globalPlugins\dictionaries\__init__.py:392
+#: addon\globalPlugins\dictionaries\__init__.py:496
+#: addon\globalPlugins\dictionaries\__init__.py:641
+#: addon\globalPlugins\dictionaries\__init__.py:701
+#: addon\globalPlugins\dictionaries\__init__.py:830
+#: addon\globalPlugins\dictionaries\__init__.py:871 buildVars.py:23
 msgid "Dictionaries"
 msgstr "Dicionários"
 
-#: dictionaries/__init__.py:221
+#. Translators: Message to be announced during Keyboard Help
+#: addon\globalPlugins\dictionaries\__init__.py:244
 msgid "Main window to access several dictionaries"
 msgstr "Janela principal para aceder a vários dicionários"
 
-#: dictionaries/__init__.py:255
-msgid "Choose the dictionary and press Enter"
-msgstr "Escolhe o dicionário e pressiona Enter"
+#. Translators: Message to be announced during Keyboard Help
+#: addon\globalPlugins\dictionaries\__init__.py:254
+msgid "Opens the dictionary search window using the default dict"
+msgstr "Abre a janela de pesquisa usando o dicionário padrão"
 
-#: dictionaries/__init__.py:272
-msgid "Download more..."
-msgstr "Descarregar mais..."
+#. Translators: StaticText with instructions for the user:
+#: addon\globalPlugins\dictionaries\__init__.py:319
+msgid "Choose the dictionary and press Enter or Tab for other options."
+msgstr "Escolha o dicionário e pressione Enter ou Tab para outras opções."
 
-#: dictionaries/__init__.py:326 dictionaries/__init__.py:428
+#. Translators: Button to open the Manage dicts window
+#: addon\globalPlugins\dictionaries\__init__.py:336
+msgid "Manage dictionaries..."
+msgstr "Gerir dicionários..."
+
+#. Translators: Button to set a dictionnary as default
+#: addon\globalPlugins\dictionaries\__init__.py:340
+msgid "Set dictionary as Default"
+msgstr "Definir dicionário como padrão"
+
+#: addon\globalPlugins\dictionaries\__init__.py:376
+msgid " set as default dictionary."
+msgstr " definido como dicionário padrão."
+
+#. For translators: Choose a term from list to search
+#. For translators: Asking to choose what to search
+#: addon\globalPlugins\dictionaries\__init__.py:399
+#: addon\globalPlugins\dictionaries\__init__.py:502
 msgid "Select what to search  from the list."
 msgstr "Seleccione o que procurar a partir da lista."
 
-#: dictionaries/__init__.py:330
+#. For translators: Asking to enter a letter, word or expression to search
+#: addon\globalPlugins\dictionaries\__init__.py:403
 msgid "Enter the first letter, a word or an expression to search."
 msgstr "Introduza a primeira letra, palavra ou expressão a pesquisar."
 
-#: dictionaries/__init__.py:350
+#. Ask the user to wait for the list...
+#: addon\globalPlugins\dictionaries\__init__.py:416
 msgid "Please wait untill the index is created..."
 msgstr "Por favor aguarde até que o índice seja criado..."
 
-#: dictionaries/__init__.py:523
+#: addon\globalPlugins\dictionaries\__init__.py:596
 msgid "dictionaries"
 msgstr "dicionários"
 
-#: dictionaries/__init__.py:529
+#. Translators: message informing the word do not exist
+#: addon\globalPlugins\dictionaries\__init__.py:602
 #, python-format
 msgid "%s not found in the dictionary of %s.\n"
 msgstr "%s não encontrado no dicionário de %s.\n"
 
-#: dictionaries/__init__.py:531
+#. Translators: message asking user if he wants to search again
+#: addon\globalPlugins\dictionaries\__init__.py:604
 msgid "Do you want to search another word?"
 msgstr "Quer procurar outra palavra?"
 
-#: dictionaries/__init__.py:573
+#. Translators: Static text announcing the results
+#: addon\globalPlugins\dictionaries\__init__.py:646
 msgid "Here is the result of your search:"
 msgstr "Eis o resultado da sua pesquisa:"
 
-#: dictionaries/__init__.py:583
+#. Translators: Name of button to perform another search
+#: addon\globalPlugins\dictionaries\__init__.py:656
 msgid "Search again"
 msgstr "Procurar outra vez"
 
-#: dictionaries/__init__.py:588
+#. Translators: Name of button that allows to copy results to clipboard
+#: addon\globalPlugins\dictionaries\__init__.py:661
 msgid "Copy to clipboard"
 msgstr "Copiar para a área de transferência"
 
-#: dictionaries/__init__.py:635
+#: addon\globalPlugins\dictionaries\__init__.py:709
+msgid "Manage"
+msgstr "Gerir"
+
+#: addon\globalPlugins\dictionaries\__init__.py:713
+msgid "Order or delete existing dictionaries"
+msgstr "Re-ordene ou apague dicionários"
+
+#: addon\globalPlugins\dictionaries\__init__.py:720
+msgid "Move up"
+msgstr "Mover para cima"
+
+#: addon\globalPlugins\dictionaries\__init__.py:723
+msgid "Move down"
+msgstr "Mover para baixo"
+
+#: addon\globalPlugins\dictionaries\__init__.py:726
+msgid "Delete"
+msgstr "Apagar"
+
+#: addon\globalPlugins\dictionaries\__init__.py:730
+#: addon\globalPlugins\dictionaries\__init__.py:741
+msgid "Download"
+msgstr "Download"
+
+#: addon\globalPlugins\dictionaries\__init__.py:734
 msgid "Choose the dictionary to download and press Enter"
 msgstr "Escolhe o dicionário a descarregar e pressiona Enter"
 
-#: dictionaries/__init__.py:686
+#: addon\globalPlugins\dictionaries\__init__.py:777
+msgid "The first item can not be moved up!"
+msgstr "O primeiro item não pode ser movido para cima!"
+
+#: addon\globalPlugins\dictionaries\__init__.py:781
+#: addon\globalPlugins\dictionaries\__init__.py:802
+msgid " moved to position "
+msgstr " movido para a posição "
+
+#: addon\globalPlugins\dictionaries\__init__.py:798
+msgid "The last item can not be moved down!"
+msgstr "O último item não pode ser movido para baixo!"
+
+#. Translators: Message dialog box asking confirmation to delete the dictionary
+#: addon\globalPlugins\dictionaries\__init__.py:830
+#, python-format
+msgid "Are you sure you want to delete the %s dictionary file?"
+msgstr "Tem a certeza de que quer eliminar o ficheiro do dicionário %s?"
+
+#. Translators: Message dialog box asking confirmation to download
+#: addon\globalPlugins\dictionaries\__init__.py:871
 #, python-format
 msgid "Are you sure you want to download the %s dictionary from %s?"
 msgstr "Tem a certeza que quer descarregar o dicionário %s de %s?"
 
-#: dictionaries/__init__.py:687
+#: addon\globalPlugins\dictionaries\__init__.py:872
 #, python-format
 msgid "Downloading %s"
 msgstr "A descarregar %s"
 
-#: dictionaries/__init__.py:687
+#: addon\globalPlugins\dictionaries\__init__.py:872
 msgid "Please wait..."
 msgstr "Por favor aguarde..."
 
-#: dictionaries/__init__.py:709
+#: addon\globalPlugins\dictionaries\__init__.py:885
 msgid "File downloaded successfully!"
 msgstr "Ficheiro descarregado com sucesso!"
 
-#: dictionaries/__init__.py:709
+#: addon\globalPlugins\dictionaries\__init__.py:885
 msgid "Success!"
 msgstr "Sucesso!"
 
-#: dictionaries/__init__.py:713
+#: addon\globalPlugins\dictionaries\__init__.py:901
 msgid "It was not possible to download the file."
 msgstr "Não foi possível descarregar o ficheiro."
 
-#: dictionaries/__init__.py:713
+#: addon\globalPlugins\dictionaries\__init__.py:901
 msgid "Error!"
 msgstr "Erro!"
 
-#: dictionaries/buildVars.py:26
-msgid "Allows quick access to several dictionaries"
-msgstr "Permite o acesso rápido a vários dicionários"
-
-#: dictionaries/update.py:94
+#. Translators: Message dialog box to ask user if wants to update.
+#: addon\globalPlugins\dictionaries\update.py:94
 msgid ""
 "It is available a new version of this add-on.\n"
 " Do you want to update?"
@@ -369,7 +541,8 @@ msgstr ""
 "Está disponível uma nova versão deste extra.\n"
 " Quer actualizar?"
 
-#: dictionaries/update.py:129
+#. Translators: Message dialog box to inform user that the add-on is not compatible
+#: addon\globalPlugins\dictionaries\update.py:129
 msgid ""
 "This new version of this add-on is not compatible with your version of "
 "NVDA.\n"
@@ -378,9 +551,41 @@ msgstr ""
 "Esta nova versão deste extra não é compatível com a sua versão do NVDA.\n"
 " O processo de actualização será terminado."
 
-#: dictionaries/update.py:152
+#. Translators: Checkbox name in the configuration dialog
+#: addon\globalPlugins\dictionaries\update.py:152
 msgid "Check for updates at startup"
 msgstr "Verificar por actualizações no arranque"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid "Allows quick access to several dictionaries"
+msgstr "Permite o acesso rápido a vários dicionários"
+
+#, fuzzy
+#~| msgid "Choose the dictionary to download and press Enter"
+#~ msgid "Choose the dictionary to download"
+#~ msgstr "Escolhe o dicionário a descarregar e pressiona Enter"
+
+#~ msgid "Download more..."
+#~ msgstr "Descarregar mais..."
+
+#~ msgid "Delete dictionary"
+#~ msgstr "Eliminar dicionário"
+
+#~ msgid "Re-order dictionaries"
+#~ msgstr "Re-ordenar dicionários"
+
+#~ msgid ""
+#~ "Use the \"Move up\" and \"Move down\" buttons to re-order the "
+#~ "dictionaries.\n"
+#~ "Remember that the first dictionary is used as default dictionary untill "
+#~ "you set one as default."
+#~ msgstr ""
+#~ "Utilize os botões \"Mover para cima\" e \"Mover para baixo\" para "
+#~ "reordenar os dicionários.\n"
+#~ "Lembre-se de que o primeiro dicionário é utilizado como dicionário padrão "
+#~ "até que se defina um como padrão."
 
 #~ msgid "Philosophy by Nicola Abbagnano (in portuguese)"
 #~ msgstr "Filosofia por Nicola Abbagnano"

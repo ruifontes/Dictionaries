@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # dictionaries add-on
 # Provides quick access to several dictionaries.
-# Shortcut: Control+shift+F6
 # written by Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail.com> and Abel Passos do Nascimento Jr. <abel.passos@gmail.com>
 # This file is covered by the GNU General Public License.
 # See the file COPYING for more details.
@@ -26,13 +25,29 @@ import addonHandler
 addonHandler.initTranslation()
 
 #Global variables
-#Path of dictionaries folder
+#Path of files or folders
+# Dictionaries folder
 filepath = os.path.join (os.path.dirname(__file__), "dicionarios")
+# INI file with list of dictionaries downloaded
+available = os.path.join(globalVars.appArgs.configPath, "availableDictsList.ini")
+
+availableDictsList = []
+missingDicts = []
+defaultDict = ""
+# Name of the dictionary
+selectedDict = ""
+# File name of the dictionary
 dictToUse = ""
+# Complete URL of the desired file to download
 dictToDownload = ""
+wordToSearch = ""
+ourLine = ""
+
 dict = {
 	# Translators: Name of a dictionary
 	_("Dutch-French") : "neerlandes-frances.db",
+	# Translators: Name of a dictionary
+	_("English-Amharic") : "amharic.db",
 	# Translators: Name of a dictionary
 	_("English-French") : "ingles-frances.db",
 	# Translators: Name of a dictionary
@@ -106,7 +121,11 @@ dict = {
 	# Translators: Name of a dictionary
 	_("Spanish - RAE New version (in spanish)") : "Diccionario_de_la_Lengua_Espanhola-RAE2.db",
 	# Translators: Name of a dictionary
+	_("Turkish (in turkish)") : "tk.db",
+	# Translators: Name of a dictionary
 	_("Alchemy (in portuguese)") : "Dicionario_Alquimico.db",
+	# Translators: Name of a dictionary
+	_("Biblical (in portuguese)") : "Dicionario_biblico-Italo_Fernando_Brevi.db",
 	# Translators: Name of a dictionary
 	_("Botany (in portuguese)") : "Glossario-de-Botanica.db",
 	# Translators: Name of a dictionary
@@ -130,13 +149,15 @@ dict = {
 	# Translators: Name of a dictionary
 	_("Law glossary (in portuguese pt_pt)") : "Glossario_juridico-OA.db",
 	# Translators: Name of a dictionary
-	_("Mathematic elementar (in portuguese)") : "glossario-elementar-de-matematica.db",
 	# Translators: Name of a dictionary
+	_("Mathematic elementar (in portuguese)") : "glossario-elementar-de-matematica.db",
 	_("Medical (in french)") : "dicionario-medico(frances).db",
 	# Translators: Name of a dictionary
 	_("Medical popular (in portuguese)") : "dicionario-medico.db",
 	# Translators: Name of a dictionary
 	_("Medical technical (in portuguese)") : "Dicionario_Medico_Pro.db",
+	# Translators: Name of a dictionary
+	_("Music (in portuguese)") : "dicionario_de_musica.db",
 	# Translators: Name of a dictionary
 	_("Nursing (in portuguese)") : "Termos_tecnicos_de_enfermagem_mais_usados.db",
 	# Translators: Name of a dictionary
@@ -148,19 +169,25 @@ dict = {
 	# Translators: Name of a dictionary
 	_("Politic (in portuguese)") : "dicionario-de-politica.db",
 	# Translators: Name of a dictionary
+	_("Portuguese musicians (in portuguese)") : "dicionario_de_musicos_portugueses.db",
+	# Translators: Name of a dictionary
 	_("Psychology (in portuguese)") : "dicionario-de-psicologia.db",
+	# Translators: Name of a dictionary
+	_("Slang and idioms (in portuguese)") : "dicionario_de_calao_e_expressoes_idiomaticas_2022.db",
 		# Translators: Name of a dictionary
 	_("Tecnical of Informatic (english-french)") : "informatica-ingles-frances.db",
 	# Translators: Name of a dictionary
 	_("Tecnical of Informatic (in portuguese)") : "dicionario-tecnico-de-informatica.db",
 	# Translators: Name of a dictionary
-	_("Veterinary medicin (in portuese)") : "Dicionario_Medicina_Veterinaria.db",
+	_("Veterinary medicin (in portuguese)") : "Dicionario_Medicina_Veterinaria.db",
 }
 
 totalDictList = list(dict.keys())
+
 thematics = [
 	"Dicionario-de-dificuldades-da-lingua-portuguesa.db",
 	"Dicionario_Alquimico.db",
+	"Dicionario_biblico-Italo_Fernando_Brevi.db",
 	"Glossario-de-Botanica.db",
 	"Terminologia-pratica-clinica.db",
 	"dicionario-de-quimica.db",
@@ -174,23 +201,19 @@ thematics = [
 	"glossario-elementar-de-matematica.db",
 	"dicionario-medico(frances).db",
 	"dicionario-medico.db",
+	"dicionario_de_musica.db",
 	"Termos_tecnicos_de_enfermagem_mais_usados.db",
 	"cambridge-dictionary-of-philosophy.db",
 	"dicionario-de-filosofia.db",
 	"diccionario_fonetico(espanhol).db",
 	"dicionario-de-politica.db",
+	"dicionario_de_musicos_portugueses.db",
 	"dicionario-de-psicologia.db",
+	"dicionario_de_calao_e_expressoes_idiomaticas_2022.db",
 	"informatica-ingles-frances.db",
 	"dicionario-tecnico-de-informatica.db",
-		"Dicionario_Medicina_Veterinaria.db"
+	"Dicionario_Medicina_Veterinaria.db"
 ]
-
-missingDicts = []
-availableDictsList = []
-dictToUse = ""
-selectedDict = ""
-wordToSearch = ""
-ourLine = ""
 
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
@@ -221,9 +244,34 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		description= _("Main window to access several dictionaries"),
 		# For translators: Name of the section in "Input gestures" dialog.	
 		category= _("Dictionaries"))
-	def script_exp1(self, event):
+	def script_openMainWindow(self, event):
 		#Calling the class "MainWindow" to select the dictionary to use or to download more.
 		gui.mainFrame._popupSettingsDialog(MainWindow)
+
+	@script(
+		gesture="kb:Control+windows+F6",
+		# Translators: Message to be announced during Keyboard Help	 
+		description= _("Opens the dictionary search window using the default dict"),
+		# For translators: Name of the section in "Input gestures" dialog.	
+		category= _("Dictionaries"))
+	def script_searchOnDefaultDict(self, event):
+		global dictList, selectedDict, dictToUse
+		# Get the default dictionary as selectedDict. If no default is set, selectedDict is the first of dictList
+		if defaultDict == "":
+			if os.path.isfile(available):
+				dictList = []
+				with open(available, "r", encoding = "utf-8") as file:
+					for L in file:
+						dictList.append(L[:-1])
+			# Get the name of the dict to use. Index 0 is the number of dicts, so we want index 1...
+			selectedDict = dict.get(dictList[1])
+			# Get the path of selected dictionary
+			dictToUse = os.path.join(filepath, selectedDict)
+		else:
+			selectedDict = defaultDict
+			dictToUse = os.path.join(filepath, selectedDict)
+		# Calling the class "SearchWindow" to search a definition on the default dict
+		gui.mainFrame._popupSettingsDialog(SearchWindow)
 
 
 class MainWindow(wx.Dialog):
@@ -235,6 +283,7 @@ class MainWindow(wx.Dialog):
 
 		#Filter the dictionaries present on dicts folder
 		global missingDicts, availableDictsList, dictList, selectedDict
+		# Get the available dicts from the dicionarios folder
 		availableDictsList = os.listdir(filepath)
 		missingDicts = []
 		dictList = list(dict.keys())
@@ -249,10 +298,25 @@ class MainWindow(wx.Dialog):
 				# To allow to check all dicts since we have deleted the item with number n...
 				n -= 1
 			n += 1
+		# Check if availableDictsList.ini exists
+		if os.path.isfile(available):
+			# Exist, so use to preserve the user ordenation...
+			pass
+		else:
+			# Construct the INI file of available dicts
+			with open(available, "w", encoding = "utf-8") as file:
+				file.write(str(len(dictList))+"\n")
+				for L in dictList:
+					file.write(L + "\n")
+		dictList = []
+		with open(available, "r", encoding = "utf-8") as file:
+			for L in file:
+				dictList.append(L[:-1])
+		del(dictList[0])
 
-		sizer_1 = wx.BoxSizer(wx.VERTICAL)
+		sizer_1 = wx.BoxSizer(wx.HORIZONTAL)
 		# Translators: StaticText with instructions for the user:
-		label_1 = wx.StaticText(self, wx.ID_ANY, _("Choose the dictionary and press Enter"))
+		label_1 = wx.StaticText(self, wx.ID_ANY, _("Choose the dictionary and press Enter or Tab for other options."))
 		sizer_1.Add(label_1, 0, 0, 0)
 
 		global choice_1
@@ -262,15 +326,19 @@ class MainWindow(wx.Dialog):
 		sizer_1.Add(choice_1, 0, 0, 0)
 
 		sizer_2 = wx.StdDialogButtonSizer()
-		sizer_1.Add(sizer_2, 0, wx.ALIGN_RIGHT | wx.ALL, 4)
+		sizer_1.Add(sizer_2, 0, wx.ALL, 4)
 
 		self.button_1 = wx.Button(self, wx.ID_OK, "")
 		self.button_1.SetDefault()
 		sizer_2.Add(self.button_1, 0, 0, 0)
 
-		# Translators: Button to allow the download of more dictionnaries
-		self.button_2 = wx.Button(self, wx.ID_ANY, _("Download more..."))
+		# Translators: Button to open the Manage dicts window
+		self.button_2 = wx.Button(self, wx.ID_ANY, _("Manage dictionaries..."))
 		sizer_2.Add(self.button_2, 0, 0, 0)
+
+		# Translators: Button to set a dictionnary as default
+		self.button_3 = wx.Button(self, wx.ID_ANY, _("Set dictionary as Default"))
+		sizer_2.Add(self.button_3, 0, 0, 0)
 
 		self.button_CANCEL = wx.Button(self, wx.ID_CANCEL, "")
 		sizer_2.AddButton(self.button_CANCEL)
@@ -284,7 +352,8 @@ class MainWindow(wx.Dialog):
 		self.SetEscapeId(self.button_CANCEL.GetId())
 
 		self.Bind(wx.EVT_BUTTON, self.searchWindow, self.button_1)
-		self.Bind(wx.EVT_BUTTON, self.downloadMore, self.button_2)
+		self.Bind(wx.EVT_BUTTON, self.manageDicts, self.button_2)
+		self.Bind(wx.EVT_BUTTON, self.setAsDefaultDict, self.button_3)
 		self.Bind(wx.EVT_BUTTON, self.quit, self.button_CANCEL)
 
 		self.Layout()
@@ -293,22 +362,26 @@ class MainWindow(wx.Dialog):
 	def searchWindow(self, event):
 		self.Close()
 		event.Skip()
-		global dictToUse, selectedDict
-		# Get the path of selected dictionary
-		dictToUse = os.path.join(filepath, dict.get(choice_1.GetStringSelection()))
+		global selectedDict, dictToUse
 		# Get the name of the dict to use
 		selectedDict = dict.get(choice_1.GetStringSelection())
+		# Get the path of selected dictionary
+		dictToUse = os.path.join(filepath, selectedDict)
 		# We have the dict, so call the search window
 		gui.mainFrame._popupSettingsDialog(SearchWindow)
 
-	def downloadMore(self, event):
-		self.Close()
+	def setAsDefaultDict(self, event):
+		global defaultDict
+		defaultDict = dict.get(choice_1.GetStringSelection())
+		ui.message(choice_1.GetStringSelection() + _(" set as default dictionary."))
+
+	def manageDicts(self, event):
 		event.Skip()
-		# Calling the download window
-		gui.mainFrame._popupSettingsDialog(DictDownload)
+		# Calling the Manage dictionaries window
+		gui.mainFrame._popupSettingsDialog(ManageDicts)
 
 	def quit(self, event):
-		self.Close()
+		self.Destroy()
 		event.Skip()
 
 
@@ -339,6 +412,8 @@ class SearchWindow(wx.Dialog):
 			self.list_ctrl_1 = wx.ListCtrl(self, wx.ID_ANY, style=wx.LC_HRULES | wx.LC_REPORT | wx.LC_SINGLE_SEL | wx.LC_VRULES)
 			sizer_1.Add(self.list_ctrl_1, 1, wx.EXPAND, 0)
 
+			# Ask the user to wait for the list...
+			ui.message(_("Please wait untill the index is created..."))
 			# Get the index with all entries
 			# Open the selected dictionary file
 			self.dbDict = sqlite3.connect(dictToUse, check_same_thread=False)
@@ -347,7 +422,6 @@ class SearchWindow(wx.Dialog):
 			self.dbCursor.execute("select verbete from dicionario")
 			occurs = self.dbCursor.fetchall()
 			self.dbDict.close()
-			ui.message(_("Please wait untill the index is created..."))
 			# Cleaning the list and inserting one column to hold the itens
 			self.list_ctrl_1.ClearAll()
 			self.list_ctrl_1.InsertColumn(0, "Verbetes")
@@ -356,7 +430,7 @@ class SearchWindow(wx.Dialog):
 			for dbRow  in occurs:
 				self.list_ctrl_1.InsertItem(i, dbRow[0])
 				i+=1
-			# Select and focusing first item
+			# Select and focus first item
 			self.list_ctrl_1.Focus(0)
 			self.list_ctrl_1.Select(0)
 
@@ -439,7 +513,6 @@ class IndexWindow(wx.Dialog):
 		self.dbCursor.execute("select verbete from dicionario where upper(verbete) like " + wordToSearch1)
 		# Get all entries matching the search query
 		occurs = self.dbCursor.fetchall()
-		#self.dbDict.close()
 		# Check how many occurrences...
 		if len(occurs) == 1:
 			# There are only one result, so gave immediatly the result and not a one element list...
@@ -512,7 +585,7 @@ class IndexWindow(wx.Dialog):
 		gui.mainFrame._popupSettingsDialog(ShowResults)
 
 	def quit(self, event):
-		self.Close()
+		self.Destroy()
 		event.Skip()
 
 
@@ -606,7 +679,7 @@ class ShowResults(wx.Dialog):
 		self.CentreOnScreen()
 
 	def searchAgain(self, event):
-		self.Close()
+		self.Destroy()
 		event.Skip()
 		# Calling the window to search another entry
 		gui.mainFrame._popupSettingsDialog(SearchWindow)
@@ -617,86 +690,189 @@ class ShowResults(wx.Dialog):
 		api.copyToClip(ourLine[0])
 
 	def quit(self, event):
-		self.Close()
+		self.Destroy()
 		event.Skip()
 
 
-class DictDownload(wx.Dialog):
+class ManageDicts(wx.Dialog):
 	def __init__(self, *args, **kwds):
 		kwds["style"] = kwds.get("style", 0) | wx.DEFAULT_DIALOG_STYLE
 		wx.Dialog.__init__(self, *args, **kwds)
-		# Translators: Dialog title
 		self.SetTitle(_("Dictionaries"))
-		self._thread = None
 
-		sizer_1 = wx.BoxSizer(wx.VERTICAL)
+		sizer_1 = wx.BoxSizer(wx.HORIZONTAL)
 
-		# Translators: Asking user to choose the dictionary to download
-		label_1 = wx.StaticText(self, wx.ID_ANY, _("Choose the dictionary to download and press Enter"))
-		sizer_1.Add(label_1, 0, 0, 0)
+		self.notebook_Manage = wx.Notebook(self, wx.ID_ANY, style=wx.NB_LEFT)
+		sizer_1.Add(self.notebook_Manage, 1, wx.EXPAND, 0)
 
-		self.choice_2 = wx.Choice(self, wx.ID_ANY, choices = missingDicts)
-		self.choice_2.SetFocus()
+		self.notebook_1_pane_2 = wx.Panel(self.notebook_Manage, wx.ID_ANY)
+		self.notebook_Manage.AddPage(self.notebook_1_pane_2, _("Manage"))
+
+		sizer_4 = wx.BoxSizer(wx.VERTICAL)
+
+		label_1 = wx.StaticText(self.notebook_1_pane_2, wx.ID_ANY, _("Order or delete existing dictionaries"))
+		sizer_4.Add(label_1, 0, 0, 0)
+
+		self.list_box_1 = wx.ListBox(self.notebook_1_pane_2, wx.ID_ANY, choices = dictList)
+		self.list_box_1.SetSelection(0)
+		sizer_4.Add(self.list_box_1, 0, 0, 0)
+
+		self.button_1 = wx.Button(self.notebook_1_pane_2, wx.ID_ANY, _("Move up"))
+		sizer_4.Add(self.button_1, 0, 0, 0)
+
+		self.button_2 = wx.Button(self.notebook_1_pane_2, wx.ID_ANY, _("Move down"))
+		sizer_4.Add(self.button_2, 0, 0, 0)
+
+		self.button_3 = wx.Button(self.notebook_1_pane_2, wx.ID_ANY, _("Delete"))
+		sizer_4.Add(self.button_3, 0, 0, 0)
+
+		self.notebook_1_pane_1 = wx.Panel(self.notebook_Manage, wx.ID_ANY)
+		self.notebook_Manage.AddPage(self.notebook_1_pane_1, _("Download"))
+
+		sizer_3 = wx.BoxSizer(wx.VERTICAL)
+
+		label_2 = wx.StaticText(self.notebook_1_pane_1, wx.ID_ANY, _("Choose the dictionary to download and press Enter"))
+		sizer_3.Add(label_2, 0, 0, 0)
+
+		self.choice_2 = wx.ListBox(self.notebook_1_pane_1, wx.ID_ANY, choices = missingDicts, style = wx.LB_SINGLE)
 		self.choice_2.SetSelection(0)
-		sizer_1.Add(self.choice_2, 0, 0, 0)
+		sizer_3.Add(self.choice_2, 0, 0, 0)
 
-		sizer_2 = wx.StdDialogButtonSizer()
-		sizer_1.Add(sizer_2, 0, wx.ALIGN_RIGHT | wx.ALL, 4)
-
-		self.button_1 = wx.Button(self, wx.ID_OK, "")
-		self.button_1.SetDefault()
-		sizer_2.AddButton(self.button_1)
-
-		self.button_CANCEL = wx.Button(self, wx.ID_CANCEL, "")
-		sizer_2.AddButton(self.button_CANCEL)
-
-		sizer_2.Realize()
-
-		self.SetSizer(sizer_1)
-		sizer_1.Fit(self)
-
-		self.SetAffirmativeId(self.button_1.GetId())
-		self.SetEscapeId(self.button_CANCEL.GetId())
-
-		self.Layout()
-		self.CentreOnScreen()
-
-		self.Bind(wx.EVT_BUTTON, self.download, self.button_1)
-		self.Bind(wx.EVT_BUTTON, self.quit, self.button_CANCEL)
+		self.button_4 = wx.Button(self.notebook_1_pane_1, wx.ID_ANY, _("Download"))
+		sizer_3.Add(self.button_4, 0, 0, 0)
 
 		self.progressBar = None
 		self.countProgressBar = 0
 
-	def download(self, event):
-		#self.Close()
+		sizer_2 = wx.StdDialogButtonSizer()
+		sizer_1.Add(sizer_2, 0, wx.ALL, 4)
+
+		self.button_CLOSE = wx.Button(self, wx.ID_CLOSE, "")
+		sizer_2.AddButton(self.button_CLOSE)
+
+		sizer_2.Realize()
+
+		self.notebook_1_pane_1.SetSizer(sizer_3)
+		self.notebook_1_pane_2.SetSizer(sizer_4)
+		self.SetSizer(sizer_1)
+		sizer_1.Fit(self)
+
+		self.SetEscapeId(self.button_CLOSE.GetId())
+		self.Bind(wx.EVT_BUTTON, self.moveUp, self.button_1)
+		self.Bind(wx.EVT_BUTTON, self.moveDown, self.button_2)
+		self.Bind(wx.EVT_BUTTON, self.deleteDict, self.button_3)
+		self.Bind(wx.EVT_BUTTON, self.download, self.button_4)
+		self.Bind(wx.EVT_BUTTON, self.close, self.button_CLOSE)
+		self.list_box_1.Bind(wx.EVT_KEY_DOWN, self.onKeyPress)
+		self.choice_2.Bind(wx.EVT_KEY_DOWN, self.onKeyPress1)
+
+		self.Layout()
+		self.CentreOnScreen()
+
+	def moveUp(self, event):
 		event.Skip()
-		global dictToDownload, dictDownloading
+		global dictList
+		itemIndex = self.list_box_1.GetSelection()
+		if itemIndex == 0:
+			ui.message(_("The first item can not be moved up!"))
+			pass
+		else:
+			itemName = self.list_box_1.GetString(itemIndex)
+			ui.message(itemName + _(" moved to position ") + str(itemIndex))
+			dictList.insert(itemIndex-1, itemName)
+			del(dictList[itemIndex+1])
+			with open(available, "w", encoding = "utf-8") as file:
+				file.write(str(len(dictList))+"\n")
+				for L in dictList:
+					file.write(L + "\n")
+			self.list_box_1.Set(dictList)
+			self.list_box_1.SetFocus()
+			self.list_box_1.SetSelection(itemIndex-1)
+
+	def moveDown(self, event):
+		event.Skip()
+		global dictList
+		itemIndex = self.list_box_1.GetSelection()
+		x = len(dictList)
+		if itemIndex == x-1:
+			ui.message(_("The last item can not be moved down!"))
+			pass
+		else:
+			itemName = self.list_box_1.GetString(itemIndex)
+			ui.message(itemName + _(" moved to position ") + str(itemIndex+2))
+			del(dictList[itemIndex])
+			dictList.insert(itemIndex+1, itemName)
+			with open(available, "w", encoding = "utf-8") as file:
+				file.write(str(len(dictList))+"\n")
+				for L in dictList:
+					file.write(L + "\n")
+			self.list_box_1.Set(dictList)
+			self.list_box_1.SetFocus()
+			self.list_box_1.SetSelection(itemIndex+1)
+
+	def onKeyPress(self, event):
+		event.Skip()
+		# Sets delete to remove it.
+		keycode = event.GetKeyCode()
+		if keycode == wx.WXK_DELETE:
+			self.deleteDict(event)
+
+	def deleteDict(self, event):
+		event.Skip()
+		global dictList, missingDicts
+		# Get the index of the selected dict
+		itemIndex = self.list_box_1.GetSelection()
+		# Get the name of the file
+		name = dict.get(self.list_box_1.GetStringSelection())
+		# Get the full URL of the file
+		file = os.path.join(filepath, name)
+		# Translators: Message dialog box asking confirmation to delete the dictionary
+		if gui.messageBox(_("Are you sure you want to delete the %s dictionary file?") %self.list_box_1.GetStringSelection(), _("Dictionaries"), style=wx.ICON_QUESTION|wx.YES_NO) == wx.YES:
+			# As we deleted the file, join it to the list available to download
+			missingDicts.append(dictList[itemIndex])
+			# Delete it from the list of dicts available
+			del(dictList[itemIndex])
+			# Remove the file
+			os.remove(file)
+			# Reconstruct the available files INI file
+			with open(available, "w", encoding = "utf-8") as file:
+				file.write(str(len(dictList))+"\n")
+				for L in dictList:
+					file.write(L + "\n")
+		self.list_box_1.Set(dictList)
+		self.list_box_1.SetFocus()
+		self.list_box_1.SetSelection(0)
+		self.choice_2.Set(missingDicts)
+
+	def onKeyPress1(self, event):
+		# Sets enter to download it.
+		keycode = event.GetKeyCode()
+		if keycode == wx.WXK_RETURN:
+			self.download(event)
+		event.Skip()
+
+	def download(self, event):
+		event.Skip()
+		global dictIndex, dictDownloading, dictToDownload, urlN, urlName, urlRepos, file
+		# Get the index and name of selected dictionary
+		dictIndex = self.choice_2.GetSelection()
 		dictDownloading = self.choice_2.GetStringSelection()
-		dictToDownload = dict.get(self.choice_2.GetStringSelection())
+		# From the selected dict, get the name of the file to download
+		dictToDownload = dict.get(dictDownloading)
 		# Name of dictionariy
-		urlN = dict.get(self.choice_2.GetStringSelection())
+		urlN = dictToDownload
 		# Online repository of dicts
 		urlRepos = "https://www.tiflotecnia.net/dictdb/"
-		# Complete URL of the dictionary file...
+		# Full URL of the dictionary file...
 		urlName = urlRepos + urlN
-		# Complete path where to save the dictionary
+		# Full path where to save the dictionary
 		file = os.path.join(filepath, urlN)
-
 		# Translators: Message dialog box asking confirmation to download
-		if gui.messageBox(_("Are you sure you want to download the %s dictionary from %s?") %(self.choice_2.GetStringSelection(), urlRepos[:-8]), _("Dictionaries"), style=wx.ICON_QUESTION|wx.YES_NO) == wx.YES:
-			self.progressBar = wx.ProgressDialog(_("Downloading %s") %(self.choice_2.GetStringSelection(),), _("Please wait..."), 100, style=wx.PD_CAN_ABORT | wx.PD_APP_MODAL )
-			# Thread to download file
-			# t = threading.Thread(target=threadDownload) # # dwnl()
-			# t.daemon = True
-			# t.start()
+		if gui.messageBox(_("Are you sure you want to download the %s dictionary from %s?") %(dictDownloading, urlRepos[:-8]), _("Dictionaries"), style=wx.ICON_QUESTION|wx.YES_NO) == wx.YES:
+			self.progressBar = wx.ProgressDialog(_("Downloading %s") %dictDownloading, _("Please wait..."), 100, style=wx.PD_CAN_ABORT | wx.PD_APP_MODAL )
 			progressUpdate(self, file, dictToDownload)
-			# After the correct download, update the dictionaries listes
-			global missingDicts
-			missingDicts.remove(dictDownloading)
-			# Calling the window to download more
-			gui.mainFrame._popupSettingsDialog(DictDownload)
 		else:
-			self.Close()
+			self.choice_2.SetFocus()
 
 	def updateProgressBar(self):
 		self.countProgressBar+=1
@@ -707,23 +883,39 @@ class DictDownload(wx.Dialog):
 	def finishProgressBar(self):
 		self.progressBar.Destroy()
 		dlg = wx.MessageDialog(self, _("File downloaded successfully!"), _("Success!"), wx.OK).ShowModal()
+		# As we downloaded the file, join it to the list of available dicts and delete it from missingDicts
+		global missingDicts, dictList
+		del(missingDicts[dictIndex])
+		self.choice_2.Set(missingDicts)
+		self.choice_2.SetFocus()
+		self.choice_2.SetSelection(0)
+		dictList.append(dictDownloading)
+		self.list_box_1.Set(dictList)
+		with open(available, "w", encoding = "utf-8") as file:
+			file.write(str(len(dictList))+"\n")
+			for L in dictList:
+				file.write(L + "\n")
 
 	def msgError(self):
 		self.progressBar.Destroy()
 		dlg = wx.MessageDialog(self, _("It was not possible to download the file."), _("Error!"), wx.OK).ShowModal()
+		self.choice_2.SetFocus()
 
-	def quit(self, event):
+	def close(self, event):
 		event.Skip()
-		# Calling the main window to choose the dict to use, to download more or to quit the add-on
+		self.Destroy()
+		# Call MainWindow to use the dictionaries...
+		choice_1.Set(dictList)
 		gui.mainFrame._popupSettingsDialog(MainWindow)
+
 
 class progressUpdate(Thread):
 	def __init__(self, frame, file, dictToDownload):
 		super(progressUpdate, self).__init__()
-
 		self.frame = frame
 		self.file = file
 		self.dictToDownload = dictToDownload
+
 		self.flagDownloadOK = True
 		self.daemon = True
 		self.start()
@@ -751,19 +943,11 @@ class downloadFile(Thread):
 
 		self.upLevel = upLevel
 		self.dictToDownload = dictToDownload
+
 		self.daemon = True
 		self.start()
 
 	def run(self):
-		# Online repository of dicts
-		urlRepos = "https://www.tiflotecnia.net/dictdb/"
-		# Get the file name of selected dictionary to download
-		urlN = self.dictToDownload
-		# Complete URL of the dictionary file...
-		urlName = urlRepos + urlN
-		# Complete path where to save the dictionary
-		file = os.path.join(filepath, urlN)
-
 		try: 
 			req = urllib.request.Request(urlName, headers={'User-Agent': 'Mozilla/5.0'})
 			response = urllib.request.urlopen(req)
@@ -775,4 +959,3 @@ class downloadFile(Thread):
 			f = open(file, "wb")
 			f.write(fileContents)
 			f.close()
-
