@@ -3,13 +3,13 @@
 
 ## معلومات
 * المطور: Rui Fontes, Ângelo Abrantes e Abel Passos do Nascimento Jr.
-* آخر تحديث في 05/06/2022
+* آخر تحديث في 03/11/2022
 * تحميل [النسخة المستقرة][1]
 * التوافق: NVDA version 2019.3 فما فوق
 
 
 ## مقدمة
-توفر هذه الإضافة طريقة سريعة للوصول إلى 68 قاموسًا حتى الآن.
+توفر هذه الإضافة طريقة سريعة للوصول إلى 70 قاموسًا حتى الآن.
 حتى لا تعاني في تحميل الإضافة، يتم إضافة قواميس للبرتغالية والإنجليزية فقط.
 ويمكن تنزيل باقي القواميس من خلال الإضافة نفسها، باستخدام الواجهة الجديدة لإدارة القواميس.
 نحن جاهزون لإضافة قواميس أخرى. لذا إذا كنت تريد إضافة قاموس، يرجى الاتصال بأحد المطورين.
@@ -44,6 +44,11 @@
 ## التغييرات
 
 
+### الإصدار 2022.10
+* Two more dictionaries, now totaling 70:
+	The dictionaries introduced are: Tetun - Portuguese and Ottoman - Turkish;
+* Some bug fixes.
+
 ### الإصدار 22.06
 * عدد القواميس الآن 68
 * تقديم اختصار جديد (Control+Windows+F6) لاستخدام القاموس الافتراضي مباشرة؛
@@ -71,4 +76,4 @@
 ### الإصدار 21.10
 * إصدار أولي
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/22.06/dictionaries-22.06.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2022.10/dictionaries-2022.10.nvda-addon

@@ -83,6 +83,8 @@ dict = {
 	# Translators: Name of a dictionary
 	_("Italian-Portuguese") : "italiano-portugues.db",
 	# Translators: Name of a dictionary
+	_("Otoman-Turkish") : "Otomano-turco.db",
+	# Translators: Name of a dictionary
 	_("Portuguese-English") : "portugues-ingles.db",
 	# Translators: Name of a dictionary
 	_("Portuguese-French") : "portugues-frances.db",
@@ -96,6 +98,8 @@ dict = {
 	_("Spanish-French") : "espanhol-frances.db",
 	# Translators: Name of a dictionary
 	_("Spanish-Portuguese") : "espanhol-portugues.db",
+	# Translators: Name of a dictionary
+	_("Tetun-Portuguese") : "Dicionario_tetun-portugues.db",
 	# Translators: Name of a dictionary
 	_("English (Concise Oxford dictionary)") : "azdictionary.db",
 	# Translators: Name of a dictionary

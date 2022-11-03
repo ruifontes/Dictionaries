@@ -3,13 +3,13 @@
 
 ## Informações
 * Autores: Rui Fontes, Ângelo Abrantes e Abel Passos do Nascimento Jr.
-* Actualizado em 05/06/2022
+* Actualizado em 03/11/2022
 * Descarregar [versão estável][1]
 * Compatibilidade: NVDA versão 2019.3 e posteriores
 
 
 ## Apresentação
-Este extra fornece uma forma rápida de acesso, até agora, a 68 dicionários.
+Este extra fornece uma forma rápida de acesso, até agora, a 70 dicionários.
 Para não sobrecarregar o extra, são apenas disponibilizados os dicionários de português, inglês e entre estes dois idiomas.
 Os restantes poderão ser descarregados através do próprio extra, utilizando a nova interface para gerir dicionários.
 Estamos receptivos a incluir outros dicionários. Portanto, se desejar acrescentar um dicionário, contacte um dos autores.
@@ -19,7 +19,7 @@ Estamos receptivos a incluir outros dicionários. Portanto, se desejar acrescent
 
 Para começarmos a utilizar este extra, pressionamos Control+Shift+F6.
 Será aberta uma janela onde encontramos uma lista dos dicionários presentes no nosso computador, da qual podemos escolher o que queremos utilizar, e abri-lo com Enter.
-Temos também um botão para aceder à janela onde podemos gerir os dicionários, um botão para definir o dicionário selecionado e, por último, um botão para fechar o extra, o que também é conseguido com Escape.
+Temos também um botão para aceder à janela onde podemos gerir os dicionários, um botão para predefinir o dicionário selecionado e, por último, um botão para fechar o extra, o que também é conseguido com Escape.
 
 Na janela Gerir dicionários, temos dois separadores: Gerir e Download.
 No primeiro separador, podemos definir a ordem pela qual os dicionários aparecem na lista ou apagar o dicionário selecionado.
@@ -45,6 +45,11 @@ Se desejar que isso aconteça, vá ao menu do NVDA, Preferências, Configuraçõ
 
 ## Alterações
 
+
+### Versão 2022.10
+* Mais dois dicionários, totalizando agora 70:
+	Os dicionários introduzidos são: Tetun - Português e Otomano - Turco;
+* Algumas correções de bugs.
 
 ### Versão 22.06
 * Os dicionários são agora 68;
@@ -73,4 +78,4 @@ Se desejar que isso aconteça, vá ao menu do NVDA, Preferências, Configuraçõ
 ### Versão 21.10
 * Lançamento inicial
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/22.06/dictionaries-22.06.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2022.10/dictionaries-2022.10.nvda-addon

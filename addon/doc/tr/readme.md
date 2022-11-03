@@ -3,13 +3,13 @@
 
 ## bilgiler
 * Yazarlar: Rui Fontes, Ângelo Abrantes ve Abel Passos do Nascimento Jr.
-* tarihinde güncellendi 05/06/2022
+* tarihinde güncellendi 03/11/2022
 * [Kararlı sürümü indirin][1]
 * Uyumluluk: NVDA sürüm 2019.3 ve sonrası
 
 
 ## Giriş
-Bu eklenti, şu anda 68 sözlüğe hızlı bir şekilde erişme imkanı verir.
+Bu eklenti, şu anda 70 sözlüğe hızlı bir şekilde erişme imkanı verir.
 Eklentiyi aşırı yüklememek için sadece Portekizce, İngilizce ve bu iki dil arasındaki sözlükler verilmiştir.
 Geri kalanlar, sözlükleri yönetmek için yeni arayüz kullanılarak eklentinin kendisi aracılığıyla indirilebilir.
 Başka sözlükler eklemeye hazırız. Bu nedenle, bir sözlük eklemek istiyorsanız, lütfen yazarlardan biriyle iletişime geçin.
@@ -40,6 +40,11 @@ Bu işlemin gerçekleşmesini istiyorsanız, NVDA menüsü, Tercihler, Ayarlar'a
 ## Değişiklikler
 
 
+### Sürüm 2022.10
+* Two more dictionaries, now totaling 70:
+	The dictionaries introduced are: Tetun - Portuguese and Ottoman - Turkish;
+* Some bug fixes.
+
 ### Sürüm 22.06
 * 68 adet sözlük bulunuyor
 * Varsayılan sözlüğü doğrudan kullanmak için yeni bir komut (Control+Windows+F6) tanımlandı;
@@ -67,4 +72,4 @@ Bu işlemin gerçekleşmesini istiyorsanız, NVDA menüsü, Tercihler, Ayarlar'a
 ### Sürüm 21.10
 * İlk sürüm
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/22.06/dictionaries-22.06.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2022.10/dictionaries-2022.10.nvda-addon

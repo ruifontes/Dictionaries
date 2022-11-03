@@ -3,13 +3,13 @@
 
 ## Información
 * Autores: Rui Fontes, Ângelo Abrantes y Abel Passos do Nascimento Jr.
-* Actualizado el 05/06/2022
+* Actualizado el 03/11/2022
 * Descargar [versión estable][1]
 * Compatibilidad con NVDA: versión 2019.3 y posteriores
 
 
 ## Introducción
-Este complemento proporciona una manera rápida de acceder hasta el momento a 68 diccionarios.
+Este complemento proporciona una manera rápida de acceder hasta el momento a 70 diccionarios.
 Para no sobrecargar el complemento, solo se proporcionan los diccionarios de portugués, inglés y entre estos dos idiomas.
 El resto pueden ser descargados a través del complemento en sí, utilizando la nueva interfaz para gestionar los diccionarios.
 Estamos disponibles para añadir otros diccionarios. Entonces, si deseas añadir un diccionario, pónte en contacto con uno de los autores.
@@ -39,6 +39,11 @@ Si quieres que esto suceda, vas al menú de NVDA, Preferencias, Opciones y en la
 
 ## Registro de cambios
 
+
+### Versión 2022.10
+* Two more dictionaries, now totaling 70:
+	The dictionaries introduced are: Tetun - Portuguese and Ottoman - Turkish;
+* Some bug fixes.
 
 ### Versión 22.06
 * Los diccionarios ahora son 68
@@ -71,4 +76,4 @@ Si quieres que esto suceda, vas al menú de NVDA, Preferencias, Opciones y en la
 ### Versión 21.10
 * Versión inicial.
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/22.06/dictionaries-22.06.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2022.10/dictionaries-2022.10.nvda-addon

@@ -3,13 +3,13 @@
 
 ## Informations
 * Auteurs: Rui Fontes, Ângelo Abrantes et Abel Passos do Nascimento Jr.
-* Mis à jour le 05/06/2022
+* Mis à jour le 03/11/2022
 * Télécharger [version stable][1]
 * Compatibilité NVDA: version 2019.3 et ultérieure
 
 
 ## Introduction
-Cette extension fournit un moyen rapide d'accéder à 68 dictionnaires jusqu'à présent.
+Cette extension fournit un moyen rapide d'accéder à 70 dictionnaires jusqu'à présent.
 Pour ne pas surcharger l'extension, seuls les dictionnaires en portugais, anglais et entre ces deux langues sont fournis.
 Le reste peut être téléchargé à travers l'extension elle-même, en utilisant la nouvelle interface pour gérer les dictionnaires.
 Nous sommes disponibles pour ajouter d'autres dictionnaires. Donc, si vous souhaitez ajouter un dictionnaire, s'il vous plaît contacté avec l'un des auteurs.
@@ -39,6 +39,11 @@ Si vous voulez que cela se produise, aller dans le menu NVDA, Préférences, Par
 
 ## Journal des changements
 
+
+### Version 2022.10
+* Two more dictionaries, now totaling 70:
+	The dictionaries introduced are: Tetun - Portuguese and Ottoman - Turkish;
+* Some bug fixes.
 
 ### Version 22.06
 * Les dictionnaires sont maintenant 68
@@ -71,4 +76,4 @@ Si vous voulez que cela se produise, aller dans le menu NVDA, Préférences, Par
 ### Version 21.10
 * Version initiale.
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/22.06/dictionaries-22.06.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2022.10/dictionaries-2022.10.nvda-addon
