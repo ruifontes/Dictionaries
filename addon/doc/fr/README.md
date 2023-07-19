@@ -3,7 +3,7 @@
 
 ## Informations
 * Auteurs: Rui Fontes, Ângelo Abrantes et Abel Passos do Nascimento Jr.
-* Mis à jour le 03/11/2022
+* Mis à jour le 19/07/2023
 * Télécharger [version stable][1]
 * Compatibilité NVDA: version 2019.3 et ultérieure
 
@@ -31,19 +31,18 @@ Remarque: Si vous ne définissez pas un dictionnaire par défaut, le premier dic
 Vous pouvez modifier ces commandes dans la boîte de dialogue Gestes de commandes, dans la catégorie Dictionnaires.
 
 
-## Mise à jour automatique
-Cette extension comprend une fonction de mise à jour automatique.
-La vérification d'une nouvelle version sera effectuée chaque fois que NVDA est chargé.
-Si vous voulez que cela se produise, aller dans le menu NVDA, Préférences, Paramètres et dans la catégorie de l'extension, cochez la case à cocher.
-
-
 ## Journal des changements
 
 
+## Version 2023.07.19
+* Compatibility with NVDA 2023.1;
+* Small changes in code to call dialogs;
+* New and updated translations.
+
 ### Version 2022.10
-* Two more dictionaries, now totaling 70:
-	The dictionaries introduced are: Tetun - Portuguese and Ottoman - Turkish;
-* Some bug fixes.
+* Deux autres dictionnaires, totalisant maintenant 70:
+	Les dictionnaires introduits sont: Tetun - Portugais et Ottoman - Turc;
+* Corrections de quelques bogues.
 
 ### Version 22.06
 * Les dictionnaires sont maintenant 68
@@ -76,4 +75,4 @@ Si vous voulez que cela se produise, aller dans le menu NVDA, Préférences, Par
 ### Version 21.10
 * Version initiale.
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2022.10/dictionaries-2022.10.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.07.19/dictionaries-2023.07.19.nvda-addon

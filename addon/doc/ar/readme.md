@@ -3,7 +3,7 @@
 
 ## معلومات
 * المطور: Rui Fontes, Ângelo Abrantes e Abel Passos do Nascimento Jr.
-* آخر تحديث في 03/11/2022
+* آخر تحديث في 19/07/2023
 * تحميل [النسخة المستقرة][1]
 * التوافق: NVDA version 2019.3 فما فوق
 
@@ -33,16 +33,14 @@
 
 يمكنك تغيير هذه الاختصارات في محاورة تخصيص اختصارات NVDA، ضمن قسم إضافة القواميس.
 
-## التحديث التلقائي
-
-تتضمن هذه الإضافة ميزة التحديث التلقائي.
-
-سيتم إجراء البحث عن إصدار جديد في كل مرة يتم فيها إعادة تشغيل NVDA.
-
-إذا كنت تريد أن يحدث هذا، فانتقل إلى قائمة NVDA والتفضيلات والإعدادات وفي فئة إضافي.
 
 ## التغييرات
 
+
+## Version 2023.07.19
+* Compatibility with NVDA 2023.1;
+* Small changes in code to call dialogs;
+* New and updated translations.
 
 ### الإصدار 2022.10
 * Two more dictionaries, now totaling 70:
@@ -76,4 +74,6 @@
 ### الإصدار 21.10
 * إصدار أولي
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2022.10/dictionaries-2022.10.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.07.19/dictionaries-2023.07.19.nvda-addon
+
+

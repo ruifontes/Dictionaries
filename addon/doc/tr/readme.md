@@ -3,7 +3,7 @@
 
 ## bilgiler
 * Yazarlar: Rui Fontes, Ângelo Abrantes ve Abel Passos do Nascimento Jr.
-* tarihinde güncellendi 03/11/2022
+* 19/07/2023 tarihinde güncellendi
 * [Kararlı sürümü indirin][1]
 * Uyumluluk: NVDA sürüm 2019.3 ve sonrası
 
@@ -31,19 +31,18 @@ Not: Varsayılan bir sözlük tanımlamazsanız, listedeki ilk sözlük kullanı
 Bu komutları, Girdi hareketleri iletişim kutusunda, Sözlükler başlığı altında değiştirebilirsiniz.
 
 
-## Otomatik güncelleme
-Bu eklenti otomatik güncelleme özelliği içerir.
-NVDA her açıldığında yeni bir sürüm kontrolü yapılacaktır.
-Bu işlemin gerçekleşmesini istiyorsanız, NVDA menüsü, Tercihler, Ayarlar'a gidin ve sözlükler kategorisinde onay kutusunu işaretleyin.
-
-
 ## Değişiklikler
 
 
+## Version 2023.07.19
+* Compatibility with NVDA 2023.1;
+* Small changes in code to call dialogs;
+* New and updated translations.
+
 ### Sürüm 2022.10
-* Two more dictionaries, now totaling 70:
-	The dictionaries introduced are: Tetun - Portuguese and Ottoman - Turkish;
-* Some bug fixes.
+* Şimdi yeni iki sözlüğün eklenmesiyle, toplam 70 adet sözlük oldu.
+	Eklenen sözlükler şunlardır: Tetun - Portekizce ve Osmanlıca - Türkçe;
+* Bazı hata düzeltmeleri.
 
 ### Sürüm 22.06
 * 68 adet sözlük bulunuyor
@@ -72,4 +71,6 @@ Bu işlemin gerçekleşmesini istiyorsanız, NVDA menüsü, Tercihler, Ayarlar'a
 ### Sürüm 21.10
 * İlk sürüm
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2022.10/dictionaries-2022.10.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.07.19/dictionaries-2023.07.19.nvda-addon
+
+

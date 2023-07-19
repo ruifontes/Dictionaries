@@ -3,7 +3,7 @@
 
 ## Informations
 * Authors: Rui Fontes, Ângelo Abrantes e Abel Passos do Nascimento Jr.
-* Updated on 03/11/2022
+* Updated on 19/07/2023
 * Download [stable version][1]
 * Compatibility: NVDA version 2019.3 and beyond
 
@@ -27,24 +27,20 @@ On the Download tab we can choose the dictionaries we want to download to use.
 
 
 ## Commands
-The command to invoke the extra is Control+Shift+F6.
+The commands to invoke the extra is Control+Shift+F6.
 You can also use the command Control+Windows+F6 to access the default dictionary search directly.
 Note: If you do not define a default dictionary, the first dictionary in the list will be used.
 
 You can change these commands in the Input gestures  dialog, in the Dictionaries section.
 
 
-## Auto update
-
-This add-on includes an auto update feature.
-
-Checking for a new version will be performed each time NVDA is loaded.
-
-If you want this to happen, go to the NVDA menu, Preferences, Settings and in the category of the extra check the checkbox.
-
-
 ## Changes
 
+
+## Version 2023.07.19
+* Compatibility with NVDA 2023.1;
+* Small changes in code to call dialogs;
+* New and updated translations.
 
 ### Version 2022.10
 * Two more dictionaries, now totaling 70:
@@ -78,5 +74,5 @@ If you want this to happen, go to the NVDA menu, Preferences, Settings and in th
 ### Version 21.10
 * Initial release
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2022.10/dictionaries-2022.10.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.07.19/dictionaries-2023.07.19.nvda-addon
 

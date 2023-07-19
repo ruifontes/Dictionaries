@@ -7,20 +7,22 @@
 
 # import the necessary modules.
 import globalPluginHandler
+import globalVars
 import core
 import api
 import os
+from threading import Thread
 import wx
 import gui
+from gui.settingsDialogs import NVDASettingsDialog, SettingsPanel
+from gui import guiHelper
 import ui
 from . import sqlite3
 import threading
 import urllib.request
-# For update process
-from .update import *
 import time
-# Necessary For translation
 from scriptHandler import script
+# Necessary For translation
 import addonHandler
 addonHandler.initTranslation()
 
@@ -155,6 +157,7 @@ dict = {
 	# Translators: Name of a dictionary
 	# Translators: Name of a dictionary
 	_("Mathematic elementar (in portuguese)") : "glossario-elementar-de-matematica.db",
+	# Translators: Name of a dictionary
 	_("Medical (in french)") : "dicionario-medico(frances).db",
 	# Translators: Name of a dictionary
 	_("Medical popular (in portuguese)") : "dicionario-medico.db",
@@ -162,6 +165,8 @@ dict = {
 	_("Medical technical (in portuguese)") : "Dicionario_Medico_Pro.db",
 	# Translators: Name of a dictionary
 	_("Music (in portuguese)") : "dicionario_de_musica.db",
+	# Translators: Name of a dictionary
+	_("Music (in turkish)") : "Turkish_Music_Terms.db",
 	# Translators: Name of a dictionary
 	_("Nursing (in portuguese)") : "Termos_tecnicos_de_enfermagem_mais_usados.db",
 	# Translators: Name of a dictionary
@@ -206,6 +211,7 @@ thematics = [
 	"dicionario-medico(frances).db",
 	"dicionario-medico.db",
 	"dicionario_de_musica.db",
+	"Turkish_Music_Terms.db",
 	"Termos_tecnicos_de_enfermagem_mais_usados.db",
 	"cambridge-dictionary-of-philosophy.db",
 	"dicionario-de-filosofia.db",
@@ -230,16 +236,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return
 		# Translators: Dialog title
 		title = _("Dictionaries")
-		# To allow waiting end of network tasks
-		core.postNvdaStartup.register(self.networkTasks)
-
-	def networkTasks(self):
-		# Calling the update process...
-		_MainWindows = Initialize()
-		_MainWindows.start()
-
-	def terminate(self):
-		core.postNvdaStartup.unregister(self.networkTasks)
 
 	#defining a script with decorator:
 	@script(
@@ -250,7 +246,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		category= _("Dictionaries"))
 	def script_openMainWindow(self, event):
 		#Calling the class "MainWindow" to select the dictionary to use or to download more.
-		gui.mainFrame._popupSettingsDialog(MainWindow)
+		dialog0 = MainWindow(gui.mainFrame)
+		if not dialog0.IsShown():
+			gui.mainFrame.prePopup()
+			dialog0.Show()
+			gui.mainFrame.postPopup()
 
 	@script(
 		gesture="kb:Control+windows+F6",
@@ -275,7 +275,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			selectedDict = defaultDict
 			dictToUse = os.path.join(filepath, selectedDict)
 		# Calling the class "SearchWindow" to search a definition on the default dict
-		gui.mainFrame._popupSettingsDialog(SearchWindow)
+		dialog1 = SearchWindow(gui.mainFrame)
+		if not dialog1.IsShown():
+			gui.mainFrame.prePopup()
+			dialog1.Show()
+			gui.mainFrame.postPopup()
 
 
 class MainWindow(wx.Dialog):
@@ -285,8 +289,8 @@ class MainWindow(wx.Dialog):
 		# Translators: Dialog title
 		self.SetTitle(_("Dictionaries"))
 
-		#Filter the dictionaries present on dicts folder
 		global missingDicts, availableDictsList, dictList, selectedDict
+		# Filter the dictionaries present on dicts folder
 		# Get the available dicts from the dicionarios folder
 		availableDictsList = os.listdir(filepath)
 		missingDicts = []
@@ -297,7 +301,7 @@ class MainWindow(wx.Dialog):
 			if dict.get(dictList[n]) not in availableDictsList:
 				# False, so join to missing dicts list...
 				missingDicts.append(dictList[n])
-				# And delete from available dicts list
+				# And delete from dicts list
 				del dictList[n]
 				# To allow to check all dicts since we have deleted the item with number n...
 				n -= 1
@@ -372,7 +376,11 @@ class MainWindow(wx.Dialog):
 		# Get the path of selected dictionary
 		dictToUse = os.path.join(filepath, selectedDict)
 		# We have the dict, so call the search window
-		gui.mainFrame._popupSettingsDialog(SearchWindow)
+		dialog1 = SearchWindow(gui.mainFrame)
+		if not dialog1.IsShown():
+			gui.mainFrame.prePopup()
+			dialog1.Show()
+			gui.mainFrame.postPopup()
 
 	def setAsDefaultDict(self, event):
 		global defaultDict
@@ -382,7 +390,11 @@ class MainWindow(wx.Dialog):
 	def manageDicts(self, event):
 		event.Skip()
 		# Calling the Manage dictionaries window
-		gui.mainFrame._popupSettingsDialog(ManageDicts)
+		dialog2 = ManageDicts(gui.mainFrame)
+		if not dialog2.IsShown():
+			gui.mainFrame.prePopup()
+			dialog2.Show()
+			gui.mainFrame.postPopup()
 
 	def quit(self, event):
 		self.Destroy()
@@ -472,9 +484,6 @@ class SearchWindow(wx.Dialog):
 		# Define what to search
 		if selectedDict in thematics:
 			wordToSearch = self.list_ctrl_1.GetItemText(self.list_ctrl_1.GetFocusedItem())
-		else:
-			wordToSearch = self.text_ctrl_1.GetValue()
-		if selectedDict in thematics:
 			# Open the selected dictionary file
 			self.dbDict = sqlite3.connect(dictToUse, check_same_thread=False)
 			self.dbCursor = self.dbDict.cursor()
@@ -483,10 +492,19 @@ class SearchWindow(wx.Dialog):
 			ourLine = self.dbCursor.fetchone()
 			self.dbDict.close()
 			# Call the window showing the results
-			gui.mainFrame._popupSettingsDialog(ShowResults)
+			dialog3 = ShowResults(gui.mainFrame)
+			if not dialog3.IsShown():
+				gui.mainFrame.prePopup()
+				dialog3.Show()
+				gui.mainFrame.postPopup()
 		else:
+			wordToSearch = self.text_ctrl_1.GetValue()
 			# Call the window showing the index
-			gui.mainFrame._popupSettingsDialog(IndexWindow)
+			dialog4 = IndexWindow(gui.mainFrame)
+			if not dialog4.IsShown():
+				gui.mainFrame.prePopup()
+				dialog4.Show()
+				gui.mainFrame.postPopup()
 
 	def quit(self, event):
 		self.Close()
@@ -528,7 +546,11 @@ class IndexWindow(wx.Dialog):
 			# To destroy the window in construction because it is unnecessary...
 			self.Destroy()
 			# Calling the show results window
-			gui.mainFrame._popupSettingsDialog(ShowResults)
+			dialog3 = ShowResults(gui.mainFrame)
+			if not dialog3.IsShown():
+				gui.mainFrame.prePopup()
+				dialog3.Show()
+				gui.mainFrame.postPopup()
 		elif len(occurs) >=2:
 			# There are several items to choose from, so show a list of them...
 			self.list_ctrl_1.ClearAll()
@@ -546,7 +568,11 @@ class IndexWindow(wx.Dialog):
 			# To destroy the window in construction because it is unnecessary...
 			self.Destroy()
 			# Call a window to ask if user wants to search again...
-			gui.mainFrame._popupSettingsDialog(NewSearch)
+			dialog5 = NewSearch(gui.mainFrame)
+			if not dialog5.IsShown():
+				gui.mainFrame.prePopup()
+				dialog5.Show()
+				gui.mainFrame.postPopup()
 
 		sizer_2 = wx.StdDialogButtonSizer()
 		sizer_1.Add(sizer_2, 0, wx.ALIGN_RIGHT | wx.ALL, 4)
@@ -586,7 +612,11 @@ class IndexWindow(wx.Dialog):
 		ourLine = self.dbCursor.fetchone()
 		self.dbDict.close()
 		# Call the window showing the results
-		gui.mainFrame._popupSettingsDialog(ShowResults)
+		dialog3 = ShowResults(gui.mainFrame)
+		if not dialog3.IsShown():
+			gui.mainFrame.prePopup()
+			dialog3.Show()
+			gui.mainFrame.postPopup()
 
 	def quit(self, event):
 		self.Destroy()
@@ -635,7 +665,11 @@ class NewSearch(wx.Dialog):
 	def searchAgain(self, event):
 		event.Skip()
 		# Calling the window to search another entry
-		gui.mainFrame._popupSettingsDialog(SearchWindow)
+		dialog1 = SearchWindow(gui.mainFrame)
+		if not dialog1.IsShown():
+			gui.mainFrame.prePopup()
+			dialog1.Show()
+			gui.mainFrame.postPopup()
 
 
 class ShowResults(wx.Dialog):
@@ -686,7 +720,11 @@ class ShowResults(wx.Dialog):
 		self.Destroy()
 		event.Skip()
 		# Calling the window to search another entry
-		gui.mainFrame._popupSettingsDialog(SearchWindow)
+		dialog1 = SearchWindow(gui.mainFrame)
+		if not dialog1.IsShown():
+			gui.mainFrame.prePopup()
+			dialog1.Show()
+			gui.mainFrame.postPopup()
 
 	def copyToClip(self, event):
 		event.Skip()
@@ -828,7 +866,7 @@ class ManageDicts(wx.Dialog):
 		itemIndex = self.list_box_1.GetSelection()
 		# Get the name of the file
 		name = dict.get(self.list_box_1.GetStringSelection())
-		# Get the full URL of the file
+		# Get the complete path of the file
 		file = os.path.join(filepath, name)
 		# Translators: Message dialog box asking confirmation to delete the dictionary
 		if gui.messageBox(_("Are you sure you want to delete the %s dictionary file?") %self.list_box_1.GetStringSelection(), _("Dictionaries"), style=wx.ICON_QUESTION|wx.YES_NO) == wx.YES:

@@ -3,7 +3,7 @@
 
 ## Información
 * Autores: Rui Fontes, Ângelo Abrantes y Abel Passos do Nascimento Jr.
-* Actualizado el 03/11/2022
+* Actualizado el 19/07/2023
 * Descargar [versión estable][1]
 * Compatibilidad con NVDA: versión 2019.3 y posteriores
 
@@ -31,19 +31,18 @@ Nota: Si no estableces un diccionario predeterminado, se utilizará el primer di
 Puedes cambiar estas órdenes en el diálogo Gestos de Entrada, en la categoría Diccionarios.
 
 
-## Actualización automática
-Este complemento incluye una función de actualización automática.
-La comprobación de una nueva versión se realizará cada vez que se cargue NVDA.
-Si quieres que esto suceda, vas al menú de NVDA, Preferencias, Opciones y en la categoría del complemento marcas la casilla de verificación.
-
-
 ## Registro de cambios
 
 
+## Version 2023.07.19
+* Compatibility with NVDA 2023.1;
+* Small changes in code to call dialogs;
+* New and updated translations.
+
 ### Versión 2022.10
-* Two more dictionaries, now totaling 70:
-	The dictionaries introduced are: Tetun - Portuguese and Ottoman - Turkish;
-* Some bug fixes.
+* Dos diccionarios más, ahora totalizando 70:
+	Los diccionarios introducidos son: Tetun - Portugués y Ottoman - Turco;
+* Correcciones de algunos fallos.
 
 ### Versión 22.06
 * Los diccionarios ahora son 68
@@ -76,4 +75,6 @@ Si quieres que esto suceda, vas al menú de NVDA, Preferencias, Opciones y en la
 ### Versión 21.10
 * Versión inicial.
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2022.10/dictionaries-2022.10.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.07.19/dictionaries-2023.07.19.nvda-addon
+
+

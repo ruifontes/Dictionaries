@@ -3,7 +3,7 @@
 
 ## Informações
 * Autores: Rui Fontes, Ângelo Abrantes e Abel Passos do Nascimento Jr.
-* Actualizado em 03/11/2022
+* Actualizado em 19/07/2023
 * Descarregar [versão estável][1]
 * Compatibilidade: NVDA versão 2019.3 e posteriores
 
@@ -34,17 +34,13 @@ Nota: Se não definir nenhum dicionário padrão será utilizado o primeiro dici
 É possível alterar estes comandos no diálogo Definir comandos, na secção Dicionários.
 
 
-## Atualização automática
-
-Este extra inclui um recurso de atualização automática.
-
-A verificação de existência de nova versão será executada cada vez que o NVDA é carregado.
-
-Se desejar que isso aconteça, vá ao menu do NVDA, Preferências, Configurações e na categoria do extra marque a caixa de verificação.
-
-
 ## Alterações
 
+
+## Version 2023.07.19
+* Compatibilidade com NVDA 2023.1;
+* Pequenas alterações de código para chamar diálogos;
+* Novas e actualizadas traduções.
 
 ### Versão 2022.10
 * Mais dois dicionários, totalizando agora 70:
@@ -78,4 +74,6 @@ Se desejar que isso aconteça, vá ao menu do NVDA, Preferências, Configuraçõ
 ### Versão 21.10
 * Lançamento inicial
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2022.10/dictionaries-2022.10.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.07.19/dictionaries-2023.07.19.nvda-addon
+
+
