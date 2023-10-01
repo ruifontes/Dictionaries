@@ -74,6 +74,4 @@
 ### الإصدار 21.10
 * إصدار أولي
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.07.19/dictionaries-2023.07.19.nvda-addon
-
-
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.10.01/dictionaries-2023.10.01.nvda-addon

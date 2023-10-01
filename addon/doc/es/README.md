@@ -75,6 +75,4 @@ Puedes cambiar estas órdenes en el diálogo Gestos de Entrada, en la categoría
 ### Versión 21.10
 * Versión inicial.
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.07.19/dictionaries-2023.07.19.nvda-addon
-
-
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.10.01/dictionaries-2023.10.01.nvda-addon

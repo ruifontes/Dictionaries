@@ -74,6 +74,4 @@ Nota: Se não definir nenhum dicionário padrão será utilizado o primeiro dici
 ### Versão 21.10
 * Lançamento inicial
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.07.19/dictionaries-2023.07.19.nvda-addon
-
-
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.10.01/dictionaries-2023.10.01.nvda-addon

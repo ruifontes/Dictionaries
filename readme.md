@@ -74,5 +74,4 @@ You can change these commands in the Input gestures  dialog, in the Dictionaries
 ### Version 21.10
 * Initial release
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.07.19/dictionaries-2023.07.19.nvda-addon
-
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.10.01/dictionaries-2023.10.01.nvda-addon
