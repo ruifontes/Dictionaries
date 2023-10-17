@@ -1,9 +1,9 @@
 # Dictionaries
 
 
-## Informations
+## Information
 * Authors: Rui Fontes, Ângelo Abrantes e Abel Passos do Nascimento Jr.
-* Updated on 19/07/2023
+* Updated on 17/10/2023
 * Download [stable version][1]
 * Compatibility: NVDA version 2019.3 and beyond
 
@@ -74,4 +74,4 @@ You can change these commands in the Input gestures  dialog, in the Dictionaries
 ### Version 21.10
 * Initial release
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.10.01/dictionaries-2023.10.01.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.10.17/dictionaries-2023.10.17.nvda-addon

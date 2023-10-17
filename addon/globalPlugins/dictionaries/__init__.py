@@ -11,14 +11,18 @@ import globalVars
 import core
 import api
 import os
+import threading
 from threading import Thread
 import wx
 import gui
 from gui.settingsDialogs import NVDASettingsDialog, SettingsPanel
 from gui import guiHelper
 import ui
-from . import sqlite3
-import threading
+import versionInfo
+if versionInfo.version_year < 2024:
+	from . import sqlite3
+else:
+	from . import sqlite311 as sqlite3
 import urllib.request
 import time
 from scriptHandler import script
