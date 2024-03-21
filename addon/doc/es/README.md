@@ -3,7 +3,7 @@
 
 ## Información
 * Autores: Rui Fontes, Ângelo Abrantes y Abel Passos do Nascimento Jr.
-* Actualizado el 17/10/2023
+* Actualizado el 21/03/2024
 * Descargar [versión estable][1]
 * Compatibilidad con NVDA: versión 2019.3 y posteriores
 
@@ -75,4 +75,4 @@ Puedes cambiar estas órdenes en el diálogo Gestos de Entrada, en la categoría
 ### Versión 21.10
 * Versión inicial.
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.10.17/dictionaries-2023.10.17.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2024.03.21/dictionaries-2024.03.21.nvda-addon

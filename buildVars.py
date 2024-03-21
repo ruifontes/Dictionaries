@@ -25,7 +25,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("""Allows quick access to several dictionaries"""),
 	# version
-	"addon_version": "2023.10.17",
+	"addon_version": "2024.03.21",
 	# Author(s)
 	"addon_author": "Rui Fontes <rui.fontes@tiflotecnia.com>, Ângelo Abrantes <ampa4374@gmail.com> and Abel Passos do Nascimento Jr <abel.passos@gmail.com>",
 	# URL for the add-on documentation support

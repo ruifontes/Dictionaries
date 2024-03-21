@@ -3,7 +3,7 @@
 
 ## معلومات
 * المطور: Rui Fontes, Ângelo Abrantes e Abel Passos do Nascimento Jr.
-* آخر تحديث في 17/10/2023
+* آخر تحديث في 21/03/2024
 * تحميل [النسخة المستقرة][1]
 * التوافق: NVDA version 2019.3 فما فوق
 
@@ -74,4 +74,4 @@
 ### الإصدار 21.10
 * إصدار أولي
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.10.17/dictionaries-2023.10.17.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2024.03.21/dictionaries-2024.03.21.nvda-addon

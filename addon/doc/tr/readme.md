@@ -3,7 +3,7 @@
 
 ## bilgiler
 * Yazarlar: Rui Fontes, Ângelo Abrantes ve Abel Passos do Nascimento Jr.
-* 17/10/2023 tarihinde güncellendi
+* 21/03/2024 tarihinde güncellendi
 * [Kararlı sürümü indirin][1]
 * Uyumluluk: NVDA sürüm 2019.3 ve sonrası
 
@@ -71,4 +71,4 @@ Bu komutları, Girdi hareketleri iletişim kutusunda, Sözlükler başlığı al
 ### Sürüm 21.10
 * İlk sürüm
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2023.10.17/dictionaries-2023.10.17.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2024.03.21/dictionaries-2024.03.21.nvda-addon
