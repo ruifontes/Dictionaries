@@ -3,13 +3,12 @@
 
 ## Information
 * Authors: Rui Fontes, Ângelo Abrantes e Abel Passos do Nascimento Jr.
-* Updated on 21/03/2024
 * Download [stable version][1]
 * Compatibility: NVDA version 2019.3 and beyond
 
 
 ## Introduction
-This add-on provides a quick way to access, so far, 70 dictionaries.
+This add-on provides a quick way to access, so far, 73 dictionaries.
 In order not to overload the add-on , only the dictionaries for Portuguese, English and between these two languages are provided.
 The remaining can be downloaded through the add-on itself, using the new interface for managing dictionaries.
 We are available to add other dictionaries. So if you want to add a dictionary, please contact one of the authors.
@@ -36,6 +35,17 @@ You can change these commands in the Input gestures  dialog, in the Dictionaries
 
 ## Changes
 
+### Version 2025.08.11
+* Compatibility with NVDA 2025.1;
+* Two more dictionaries, now totaling 73:
+	The dictionaries introduced are: Portugues_Wikctionary and English_Wikctionary;
+* Some bug fixes.
+
+### Version 2024.03.21
+* Compatibility with NVDA 2024.1;
+* One more dictionary, now totaling 71:
+	The dictionarie introduced is: Music (in turkish)
+* Some bug fixes.
 
 ## Version 2023.07.19
 * Compatibility with NVDA 2023.1;
@@ -74,4 +84,4 @@ You can change these commands in the Input gestures  dialog, in the Dictionaries
 ### Version 21.10
 * Initial release
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2024.03.21/dictionaries-2024.03.21.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2025.08.11/dictionaries-2025.08.11.nvda-addon

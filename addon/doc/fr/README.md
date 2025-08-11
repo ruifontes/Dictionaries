@@ -75,4 +75,4 @@ Vous pouvez modifier ces commandes dans la boîte de dialogue Gestes de commande
 ### Version 21.10
 * Version initiale.
 
-[1]: https://github.com/ruifontes/Dictionaries/releases/download/2024.03.21/dictionaries-2024.03.21.nvda-addon
+[1]: https://github.com/ruifontes/Dictionaries/releases/download/2025.08.11/dictionaries-2025.08.11.nvda-addon

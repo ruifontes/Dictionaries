@@ -3,13 +3,13 @@
 	"displayName": "Dictionaries",
 	"URL": "",
 	"description": "Allows quick access to several dictionaries",
-	"sha256": "7b66ddc71450f2df17e8e8f9342686b0c763551f5bffb40845c6737e12c27da3",
+	"sha256": "0a162124121659ab71415ae2a06872c3ac91a8f8c7c9260ea0566ef937c5dcf1",
 	"homepage": "https://github.com/ruifontes/dictionaries",
-	"addonVersionName": "2024.03.21",
+	"addonVersionName": "2025.08.11",
 	"addonVersionNumber": {
-		"major": 2024,
-		"minor": 3,
-		"patch": 21
+		"major": 2025,
+		"minor": 8,
+		"patch": 11
 	},
 	"minNVDAVersion": {
 		"major": 2019,
@@ -17,7 +17,7 @@
 		"patch": 0
 	},
 	"lastTestedVersion": {
-		"major": 2024,
+		"major": 2025,
 		"minor": 1,
 		"patch": 0
 	},
