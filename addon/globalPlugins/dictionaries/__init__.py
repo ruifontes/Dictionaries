@@ -16,11 +16,16 @@ import gui
 from gui.settingsDialogs import NVDASettingsDialog, SettingsPanel
 from gui import guiHelper
 import ui
-import versionInfo
-if versionInfo.version_year < 2024:
-	from . import sqlite3
-else:
+try:
+	from buildVersion import version_year
+except ImportError:
+	from versionInfo import version_year
+if version_year >= 2026:
+	from . import sqlite313 as sqlite3
+elif version_year >= 2024:
 	from . import sqlite311 as sqlite3
+else:
+	from . import sqlite3
 import urllib.request
 import socket
 from scriptHandler import script
